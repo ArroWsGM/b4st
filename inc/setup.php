@@ -21,15 +21,15 @@ if ( ! function_exists('b4st_setup') ) {
 		}
 
 		add_theme_support( 'post-formats', array(
-			'aside',
+//			'aside',
 			'gallery',
-			'link',
-			'image',
-			'quote',
-			'status',
+//			'link',
+//			'image',
+//			'quote',
+//			'status',
 			'video',
-			'audio',
-			'chat'
+//			'audio',
+//			'chat'
 		) );
 
 		add_theme_support('automatic-feed-links');

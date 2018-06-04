@@ -59,9 +59,9 @@ endif;
 
 <div class="row mt-5 border-top pt-3">
     <div class="col">
-        <?php previous_post_link( '%link', '<i class="far fa-fw fa-arrow-left"></i> Previous post: ' . '%title' ); ?>
+        <?php previous_post_link( '%link', '<i class="far fa-fw fa-arrow-left"></i> ' . '%title' ); ?>
     </div>
     <div class="col text-right">
-        <?php next_post_link( '%link', 'Next post: ' . '%title' . ' <i class="far fa-fw fa-arrow-right"></i>' ); ?>
+        <?php next_post_link( '%link', '%title' . ' <i class="far fa-fw fa-arrow-right"></i>' ); ?>
     </div>
 </div>
