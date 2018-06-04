@@ -1,0 +1,41 @@
+@mixin ts() {
+    text-shadow: 0 0 2px #000;
+}
+
+@mixin makeBgImg($height, $name, $position: 'center top') {
+    background-repeat:   no-repeat;
+    background-position: unquote($position);
+    background-image: url($img-dir + $name);
+    background-size: cover;
+
+    height:              $height;
+}
+
+@mixin fs($fs: adb, $forced: false) {
+    @if $fs == lb {
+        font-family: lazurskic, sans-serif if($forced, !important, null);
+        font-weight: 700 if($forced, !important, null);
+        font-style: normal if($forced, !important, null);
+    } @else if $fs == lbi {
+        font-family: lazurskic, sans-serif if($forced, !important, null);
+        font-weight: 700 if($forced, !important, null);
+        font-style: italic if($forced, !important, null);
+    } @else if $fs == ar {
+        font-family: "avenir next", serif if($forced, !important, null);
+        font-weight: 400 if($forced, !important, null);
+        font-style: normal if($forced, !important, null);
+    } @else if $fs == ai {
+        font-family: "avenir next", serif if($forced, !important, null);
+        font-weight: 400 if($forced, !important, null);
+        font-style: italic if($forced, !important, null);
+    } @else if $fs == am {
+        font-family: "avenir next", serif if($forced, !important, null);
+        font-weight: 500 if($forced, !important, null);
+        font-style: normal if($forced, !important, null);
+    } @else {
+        font-family: "avenir next", serif if($forced, !important, null);
+        font-weight: 600 if($forced, !important, null);
+        font-style: normal if($forced, !important, null);
+    }
+
+}

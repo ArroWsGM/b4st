@@ -59,4 +59,4 @@ class b4st_walker_nav_menu extends Walker_Nav_menu {
 Register Navbar
 */
 
-register_nav_menu('navbar', __('Navbar', 'b4st'));
+register_nav_menu('navbar', __('Навигация', _TTD));

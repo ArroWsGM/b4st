@@ -1,0 +1,18 @@
+.wp-core-ui .button-danger {
+    background:      #ba2100;
+    border-color:    #f22800 #991a00 #991a00;
+    box-shadow:      0 1px 0 #991a00;
+    color:           #fff;
+    text-decoration: none;
+    text-shadow:     0 -1px 1px #991a00, 1px 0 1px #991a00, 0 1px 1px #991a00, -1px 0 1px #991a00;
+}
+
+.wp-core-ui .button-danger:hover {
+    background: #f22800;
+    border-color: #991a00;
+    color: #fff;
+}
+
+.banner-img {
+    cursor: pointer;
+}

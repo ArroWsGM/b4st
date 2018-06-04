@@ -43,7 +43,7 @@ function b4st_split_post_pagination($wp_links){
 	} else {
 		$output .= '<li class="page-item"><a class="page-link" href="' . $post_base . '">';
   }
-	$output .= '<i class="fas fa-angle-double-left"></i></a></li>';
+	$output .= '<i class="far fa-angle-double-left"></i></a></li>';
 
   // Prev
 	if ( $current_page == 1 ) {
@@ -51,7 +51,7 @@ function b4st_split_post_pagination($wp_links){
 	} else {
 		$output .= '<li class="page-item"><a class="page-link" href="' . $post_base . ($current_page - 1) . '">';
   }
-	$output .= '<i class="fas fa-angle-left"></i></a></li>';
+	$output .= '<i class="far fa-angle-left"></i></a></li>';
 
   // Pagination
   foreach( $links as $key => $link ) {
@@ -69,7 +69,7 @@ function b4st_split_post_pagination($wp_links){
 	} else {
 		$output .= '<li class="page-item"><a class="page-link" href="' . $post_base . ($current_page + 1) . '">';
   }
-	$output .= '<i class="fas fa-angle-right"></i></a></li>';
+	$output .= '<i class="far fa-angle-right"></i></a></li>';
 
   // Skip to last
   if ( $current_page == $num_pages ) {
@@ -77,7 +77,7 @@ function b4st_split_post_pagination($wp_links){
 	} else {
 		$output .= '<li class="page-item"><a class="page-link" href="' . $post_base . $num_pages . '">';
   }
-	$output .= "<i class=\"fas fa-angle-double-right\"></i></a></li>";
+	$output .= "<i class=\"far fa-angle-double-right\"></i></a></li>";
 
   // Close UL
 	$output .= '</ul>';

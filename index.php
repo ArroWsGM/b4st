@@ -1,19 +1,19 @@
 <?php get_header(); ?>
 
-<main class="container-responsive mt-5">
-  <div class="row">
+<main class="container mt-5">
+    <div class="row">
 
-    <div class="col-sm">
-      <div id="content" role="main">
+        <div class="col-md">
+            <div id="content" role="main">
 
-        <?php get_template_part('loops/index-loop'); ?>
+                <?php get_template_part( 'loops/index-loop' ); ?>
 
-      </div><!-- /#content -->
-    </div>
+            </div><!-- /#content -->
+        </div>
 
-    <?php get_sidebar(); ?>
+        <?php get_sidebar(); ?>
 
-  </div><!-- /.row -->
-</main><!-- /.container-responsive -->
+    </div><!-- /.row -->
+</main><!-- /.container -->
 
 <?php get_footer(); ?>

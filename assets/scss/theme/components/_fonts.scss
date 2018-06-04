@@ -1,0 +1,36 @@
+//Verdana
+@font-face {
+    font-family: 'verdana';
+    src:    local('Verdana'),
+            local('verdana'),
+            local('Verdana Regular'),
+            url($fonts-dir + 'verdana.woff2') format('woff2'),
+            url($fonts-dir + 'verdana.woff') format('woff'),
+            url($fonts-dir + 'verdana.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'verdana bold';
+    src:    local('Verdana Bold'),
+            local('verdanab'),
+            url($fonts-dir + 'verdanab.woff2') format('woff2'),
+            url($fonts-dir + 'verdanab.woff') format('woff'),
+            url($fonts-dir + 'verdanab.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+
+}
+
+//Caveat
+@font-face {
+    font-family: 'Caveat';
+    src:    local('Caveat Regular'),
+            local('Caveat-Regular'),
+            url($fonts-dir + 'caveat-regular.woff2') format('woff2'),
+            url($fonts-dir + 'caveat-regular.woff') format('woff'),
+            url($fonts-dir + 'caveat-regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+}

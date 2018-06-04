@@ -9,8 +9,8 @@
  */
 ?>
 
-<?php if( is_active_sidebar('sidebar-widget-area') ): ?>
-<div class="sidebar col-sm-4" id="sidebar" role="navigation">
-  <?php dynamic_sidebar('sidebar-widget-area'); ?>
-</div>
+<?php if ( is_active_sidebar( 'sidebar-widget-area' ) ): ?>
+    <div class="sidebar col-md-4" id="sidebar" role="navigation">
+        <?php dynamic_sidebar( 'sidebar-widget-area' ); ?>
+    </div>
 <?php endif; ?>
