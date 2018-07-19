@@ -43,11 +43,6 @@ class B4stThemeSettings {
     public function settings_page() {
         // Set class property
         $this->options = get_option( $this->on );
-
-        global $b4sth;
-
-        $b4sth->log($this->options);
-        $b4sth->log(_POP_TR);
         ?>
         <div class="wrap">
             <h1><?php _e( 'Настройки темы', _TTD ) ?></h1>
@@ -112,33 +107,9 @@ class B4stThemeSettings {
         );
 
         add_settings_field(
-            'social_fb', // ID
-            __( 'Facebook', _TTD ), // Title
-            array( $this, 'facebook_callback' ), // Callback
-            _TTD . '-settings', // Page
-            'social_section' // Section
-        );
-
-        add_settings_field(
-            'social_twitter', // ID
-            __( 'Twitter', _TTD ), // Title
-            array( $this, 'twitter_callback' ), // Callback
-            _TTD . '-settings', // Page
-            'social_section' // Section
-        );
-
-        add_settings_field(
-            'social_youtube', // ID
-            __( 'Youtube', _TTD ), // Title
-            array( $this, 'youtube_callback' ), // Callback
-            _TTD . '-settings', // Page
-            'social_section' // Section
-        );
-
-        add_settings_field(
-            'social_instagram', // ID
-            __( 'Instagram', _TTD ), // Title
-            array( $this, 'instagram_callback' ), // Callback
+            'social_profiles', // ID
+            __( 'Соц. сети', _TTD ), // Title
+            array( $this, 'social_callback' ), // Callback
             _TTD . '-settings', // Page
             'social_section' // Section
         );
@@ -199,20 +170,12 @@ class B4stThemeSettings {
             }
         }
 
-        if ( isset( $input['social_fb'] ) ) {
-            $new_input['social_fb'] = esc_url( $input['social_fb'], array( 'http', 'https' ) );
-        }
-
-        if ( isset( $input['social_twitter'] ) ) {
-            $new_input['social_twitter'] = esc_url( $input['social_twitter'], array( 'http', 'https' ) );
-        }
-
-        if ( isset( $input['social_youtube'] ) ) {
-            $new_input['social_youtube'] = esc_url( $input['social_youtube'], array( 'http', 'https' ) );
-        }
-
-        if ( isset( $input['social_instagram'] ) ) {
-            $new_input['social_instagram'] = esc_url( $input['social_instagram'], array( 'http', 'https' ) );
+        if ( isset( $input['social_profiles'] ) && ! empty( $input['social_profiles'] ) && is_array( $input['social_profiles'] ) ) {
+            foreach ( $input['social_profiles'] as $key => $val ) {
+                if ( ! empty( $input['social_profiles'][$key] ) ) {
+                    $new_input['social_profiles'][$key] = esc_url( $input['social_profiles'][$key], array( 'http', 'https' ) );
+                }
+            }
         }
 
         if ( isset( $input['contacts_phone'] ) ) {
@@ -415,37 +378,31 @@ class B4stThemeSettings {
     /**
      * Get the settings option array and print one of its values
      */
-    public function facebook_callback() {
-        $social_fb = isset( $this->options['social_fb'] ) ? $this->options['social_fb'] : '';
+    public function social_callback() {
+        $social_fb = isset( $this->options['social_profiles']['social_fb'] ) ? $this->options['social_profiles']['social_fb'] : '';
+        echo '<p>' . __('Facebook', _TTD) . '<br>';
+        echo '<input type="text" id="social_fb" name="' . $this->on . '[social_profiles][social_fb]" value="' . $social_fb . '" placeholder="' . __('URL социальной сети', _TTD) . '" class="regular-text ltr">';
+        echo '</p>';
 
-        echo '<input type="text" id="social_fb" name="' . $this->on . '[social_fb]" value="' . $social_fb . '" placeholder="Facebook url" class="regular-text ltr">';
-    }
+        $social_twitter = isset( $this->options['social_profiles']['social_twitter'] ) ? $this->options['social_profiles']['social_twitter'] : '';
+        echo '<p>' . __('Twitter', _TTD) . '<br>';
+        echo '<input type="text" id="social_twitter" name="' . $this->on . '[social_profiles][social_twitter]" value="' . $social_twitter . '" placeholder="' . __('URL социальной сети', _TTD) . '" class="regular-text ltr">';
+        echo '</p>';
 
-    /**
-     * Get the settings option array and print one of its values
-     */
-    public function twitter_callback() {
-        $social_twitter = isset( $this->options['social_twitter'] ) ? $this->options['social_twitter'] : '';
+        $social_youtube = isset( $this->options['social_profiles']['social_youtube'] ) ? $this->options['social_profiles']['social_youtube'] : '';
+        echo '<p>' . __('Youtube', _TTD) . '<br>';
+        echo '<input type="text" id="social_youtube" name="' . $this->on . '[social_profiles][social_youtube]" value="' . $social_youtube . '" placeholder="' . __('URL социальной сети', _TTD) . '" class="regular-text ltr">';
+        echo '</p>';
 
-        echo '<input type="text" id="social_twitter" name="' . $this->on . '[social_twitter]" value="' . $social_twitter . '" placeholder="Twitter url" class="regular-text ltr">';
-    }
+        $social_instagram = isset( $this->options['social_profiles']['social_instagram'] ) ? $this->options['social_profiles']['social_instagram'] : '';
+        echo '<p>' . __('Instagram', _TTD) . '<br>';
+        echo '<input type="text" id="social_instagram" name="' . $this->on . '[social_profiles][social_instagram]" value="' . $social_instagram . '" placeholder="' . __('URL социальной сети', _TTD) . '" class="regular-text ltr">';
+        echo '</p>';
 
-    /**
-     * Get the settings option array and print one of its values
-     */
-    public function youtube_callback() {
-        $social_youtube = isset( $this->options['social_youtube'] ) ? $this->options['social_youtube'] : '';
-
-        echo '<input type="text" id="social_youtube" name="' . $this->on . '[social_youtube]" value="' . $social_youtube . '" placeholder="Youtube url" class="regular-text ltr">';
-    }
-
-    /**
-     * Get the settings option array and print one of its values
-     */
-    public function instagram_callback() {
-        $social_instagram = isset( $this->options['social_instagram'] ) ? $this->options['social_instagram'] : '';
-
-        echo '<input type="text" id="social_instagram" name="' . $this->on . '[social_instagram]" value="' . $social_instagram . '" placeholder="Instagram url" class="regular-text ltr">';
+        $social_telegram = isset( $this->options['social_profiles']['social_telegram'] ) ? $this->options['social_profiles']['social_telegram'] : '';
+        echo '<p>' . __('Telegram', _TTD) . '<br>';
+        echo '<input type="text" id="social_telegram" name="' . $this->on . '[social_profiles][social_telegram]" value="' . $social_telegram . '" placeholder="' . __('URL социальной сети', _TTD) . '" class="regular-text ltr">';
+        echo '</p>';
     }
 
     /**

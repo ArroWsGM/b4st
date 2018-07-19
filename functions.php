@@ -19,6 +19,5 @@ require get_template_directory() . '/inc/navbar.php';
 require get_template_directory() . '/inc/widgets.php';
 
 
-require get_template_directory() . '/inc/search-widget.php';
 require get_template_directory() . '/inc/index-pagination.php';
 require get_template_directory() . '/inc/single-split-pagination.php';

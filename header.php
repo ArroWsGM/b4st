@@ -1,3 +1,6 @@
+<?php
+global $b4sth;
+?>
 <!DOCTYPE html>
 <html class="no-js" <?php language_attributes(); ?>>
 <head>
@@ -12,7 +15,7 @@
 <nav class="navbar navbar-expand-md navbar-light bg-light">
     <div class="container">
 
-        <a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
+        <?php $b4sth->get_logo(); ?>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarDropdown"
                 aria-controls="navbarDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,15 +35,7 @@
                          ) );
             ?>
 
-            <form class="form-inline ml-auto pt-2 pt-md-0" role="search" method="get" id="searchform"
-                  action="<?php echo esc_url( home_url( '/' ) ); ?>">
-                <input class="form-control mr-sm-1" type="text" value="<?php echo get_search_query(); ?>"
-                       placeholder="Search..." name="s" id="s">
-                <button type="submit" id="searchsubmit" value="<?php __( 'Поиск', _TTD ) ?>"
-                        class="btn btn-outline-secondary my-2 my-sm-0">
-                    <i class="far fa-search"></i>
-                </button>
-            </form>
+            <?php $b4sth->search_form(true, 'form-inline ml-auto pt-2 pt-md-0', 'header_search') ?>
         </div>
 
     </div>

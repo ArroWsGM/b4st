@@ -25,16 +25,16 @@ if ( ! function_exists('b4st_enqueues') ) {
         wp_register_script( 'font-awesome-config', get_template_directory_uri() . "/assets/vendors/fontawesome-pro/fontawesome-config{$minified}.js", false, null, null );
         wp_enqueue_script( 'font-awesome-config' );
 
-        wp_register_script( 'font-awesome-set-brands', get_template_directory_uri() . '/assets/vendors/fontawesome-pro/js/fa-brands.min.js', false, '5.0.12', null );
+        wp_register_script( 'font-awesome-set-brands', get_template_directory_uri() . '/assets/vendors/fontawesome-pro/js/brands.min.js', false, '5.1.1', null );
         wp_enqueue_script( 'font-awesome-set-brands' );
 
-//        wp_register_script( 'font-awesome-set-solid', get_template_directory_uri() . '/assets/vendors/fontawesome-pro/js/fa-solid.min.js', false, '5.0.12', null );
+//        wp_register_script( 'font-awesome-set-solid', get_template_directory_uri() . '/assets/vendors/fontawesome-pro/js/solid.min.js', false, '5.1.1', null );
 //        wp_enqueue_script( 'font-awesome-set-solid' );
 
-        wp_register_script( 'font-awesome-set-regular', get_template_directory_uri() . '/assets/vendors/fontawesome-pro/js/fa-regular.min.js', false, '5.0.12', null );
+        wp_register_script( 'font-awesome-set-regular', get_template_directory_uri() . '/assets/vendors/fontawesome-pro/js/regular.min.js', false, '5.1.1', null );
         wp_enqueue_script( 'font-awesome-set-regular' );
 
-        wp_register_script( 'font-awesome', get_template_directory_uri() . '/assets/vendors/fontawesome-pro/js/fontawesome.min.js', false, '5.0.12', null );
+        wp_register_script( 'font-awesome', get_template_directory_uri() . '/assets/vendors/fontawesome-pro/js/fontawesome.min.js', false, '5.1.1', null );
         wp_enqueue_script( 'font-awesome' );
 //
 //		wp_register_script('modernizr',  'https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js', false, '2.8.3', true);
