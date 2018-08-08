@@ -50,7 +50,8 @@ class B4stHelpers {
      * @param bool $rss include rss link
      */
     public function get_socials( $rss = false ) {
-        $rss = $rss ? get_bloginfo('rss2_url') : false;
+        $feed_url = isset( self::$options['social_profiles']['social_telegram'] ) && ! empty( self::$options['social_profiles']['social_telegram'] ) ? self::$options['social_profiles']['social_telegram'] : get_bloginfo('rss2_url');
+        $rss = $rss ? $feed_url : false;
         if (
             is_array( self::$options ) &&
             (

@@ -403,6 +403,11 @@ class B4stThemeSettings {
         echo '<p>' . __('Telegram', _TTD) . '<br>';
         echo '<input type="text" id="social_telegram" name="' . $this->on . '[social_profiles][social_telegram]" value="' . $social_telegram . '" placeholder="' . __('URL социальной сети', _TTD) . '" class="regular-text ltr">';
         echo '</p>';
+
+        $social_rss = isset( $this->options['social_profiles']['social_rss'] ) ? $this->options['social_profiles']['social_rss'] : '';
+        echo '<p>' . __('RSS feed', _TTD) . '<br>';
+        echo '<input type="text" id="social_rss" name="' . $this->on . '[social_profiles][social_rss]" value="' . $social_rss . '" placeholder="' . __('URL социальной сети', _TTD) . '" class="regular-text ltr">';
+        echo '</p>';
     }
 
     /**
