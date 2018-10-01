@@ -1,5 +1,7 @@
 # Created by .ignore support plugin (hsz.mobi)
+.npmrc
 *.log
+node_modules/
 assets/img/*
 assets/fonts/*
 assets/vendors/*
