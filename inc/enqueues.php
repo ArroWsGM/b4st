@@ -18,7 +18,7 @@ if ( ! function_exists('b4st_enqueues') ) {
 
         // Scripts
         //Include Fonts Awesome 5
-        require ('./enqueues-fa5.php');
+        require ('enqueues-fa5.php');
 //
 //		wp_register_script('modernizr',  'https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js', false, '2.8.3', true);
 //		wp_enqueue_script('modernizr');
@@ -32,7 +32,7 @@ if ( ! function_exists('b4st_enqueues') ) {
         }
 
         //Optionally include bootstrap JS
-        require ('./enqueues-bootstrap.php');
+        require ('enqueues-bootstrap.php');
 
         //// Slick
         wp_register_script( 'slick-js', get_template_directory_uri() . '/assets/node_modules/slick-carousel/slick/slick.min.js', array( 'jquery' ), '1.8.1', true );
