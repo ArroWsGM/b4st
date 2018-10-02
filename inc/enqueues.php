@@ -13,7 +13,7 @@ if ( ! function_exists('b4st_enqueues') ) {
         wp_register_style( 'bootstrap-css', get_template_directory_uri() . "/assets/css/bootstrap{$minified}.css", false, '4.1.1', null);
         wp_enqueue_style('bootstrap-css');
 
-        wp_register_style( 'b4st-css', get_template_directory_uri() . "/assets/css/b4st{$minified}.css", array( 'bootstrap-css', 'slick-css'), '1.0');
+        wp_register_style( 'b4st-css', get_template_directory_uri() . "/assets/css/b4st{$minified}.css", array( 'bootstrap-css' ), '1.0');
         wp_enqueue_style('b4st-css');
 
         // Scripts
