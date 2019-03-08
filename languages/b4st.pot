@@ -2,9 +2,9 @@
 msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-"Project-Id-Version: b4st-extended\n"
-"POT-Creation-Date: 2018-06-04 14:12+0300\n"
-"PO-Revision-Date: 2018-06-04 14:11+0300\n"
+"Project-Id-Version: b4st-extended-webpack\n"
+"POT-Creation-Date: 2019-03-08 11:56+0200\n"
+"PO-Revision-Date: 2019-03-08 11:54+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -29,249 +29,280 @@ msgstr ""
 msgid "Категория: "
 msgstr ""
 
-#: header.php:39 inc/search-widget.php:10 inc/search-widget.php:11
+#: header.php:45 header.php:47
 msgid "Поиск"
 msgstr ""
 
-#: inc/B4stCustomPostTypes.php:42
+#: inc/classes/B4st.php:337 inc/classes/B4st.php:339
+msgid "Неверный номер телефона"
+msgstr ""
+
+#: inc/classes/B4st.php:399
+msgid "<i class=\"fas fa-angle-left\"></i> Новее"
+msgstr ""
+
+#: inc/classes/B4st.php:400
+msgid "Старее <i class=\"fas fa-angle-right\"></i>"
+msgstr ""
+
+#: inc/classes/B4stCustomPostTypes.php:42
 msgid "Цитаты и анекдоты"
 msgstr ""
 
-#: inc/B4stCustomPostTypes.php:43
+#: inc/classes/B4stCustomPostTypes.php:43
 msgid "Цитата"
 msgstr ""
 
-#: inc/B4stCustomPostTypes.php:44
+#: inc/classes/B4stCustomPostTypes.php:44
 msgctxt "Добавить цитату"
 msgid "Добавить"
 msgstr ""
 
-#: inc/B4stCustomPostTypes.php:45
+#: inc/classes/B4stCustomPostTypes.php:45
 msgid "Добавить новую цитату"
 msgstr ""
 
-#: inc/B4stCustomPostTypes.php:46
+#: inc/classes/B4stCustomPostTypes.php:46
 msgid "Новая цитата"
 msgstr ""
 
-#: inc/B4stCustomPostTypes.php:47
+#: inc/classes/B4stCustomPostTypes.php:47
 msgid "Изменить цитату"
 msgstr ""
 
-#: inc/B4stCustomPostTypes.php:48
+#: inc/classes/B4stCustomPostTypes.php:48
 msgid "Посмотреть цитату"
 msgstr ""
 
-#: inc/B4stCustomPostTypes.php:49
+#: inc/classes/B4stCustomPostTypes.php:49
 msgid "Все цитаты"
 msgstr ""
 
-#: inc/B4stCustomPostTypes.php:50
+#: inc/classes/B4stCustomPostTypes.php:50
 msgid "Искать цитаты"
 msgstr ""
 
-#: inc/B4stCustomPostTypes.php:51
+#: inc/classes/B4stCustomPostTypes.php:51
 msgid "Родительская цитата:"
 msgstr ""
 
-#: inc/B4stCustomPostTypes.php:52
+#: inc/classes/B4stCustomPostTypes.php:52
 msgid "Цитаты не найдены."
 msgstr ""
 
-#: inc/B4stCustomPostTypes.php:53
+#: inc/classes/B4stCustomPostTypes.php:53
 msgid "В корзине цитаты не найдены."
 msgstr ""
 
-#: inc/B4stCustomPostTypes.php:54
+#: inc/classes/B4stCustomPostTypes.php:54
 msgid "Цитаты"
 msgstr ""
 
-#: inc/B4stCustomPostTypes.php:84
+#: inc/classes/B4stCustomPostTypes.php:84
 msgctxt "taxonomy general name"
 msgid "Категории цитат и анекдотов"
 msgstr ""
 
-#: inc/B4stCustomPostTypes.php:85
+#: inc/classes/B4stCustomPostTypes.php:85
 msgctxt "taxonomy singular name"
 msgid "Категория"
 msgstr ""
 
-#: inc/B4stCustomPostTypes.php:86
+#: inc/classes/B4stCustomPostTypes.php:86
 msgid "Искать категории"
 msgstr ""
 
-#: inc/B4stCustomPostTypes.php:87
+#: inc/classes/B4stCustomPostTypes.php:87
 msgid "Все категории"
 msgstr ""
 
-#: inc/B4stCustomPostTypes.php:88
+#: inc/classes/B4stCustomPostTypes.php:88
 msgid "Родительская категория"
 msgstr ""
 
-#: inc/B4stCustomPostTypes.php:89
+#: inc/classes/B4stCustomPostTypes.php:89
 msgid "Родительская категория:"
 msgstr ""
 
-#: inc/B4stCustomPostTypes.php:90
+#: inc/classes/B4stCustomPostTypes.php:90
 msgid "Изменить категорию"
 msgstr ""
 
-#: inc/B4stCustomPostTypes.php:91
+#: inc/classes/B4stCustomPostTypes.php:91
 msgid "Обновить категорию"
 msgstr ""
 
-#: inc/B4stCustomPostTypes.php:92
+#: inc/classes/B4stCustomPostTypes.php:92
 msgid "Добавить категорию"
 msgstr ""
 
-#: inc/B4stCustomPostTypes.php:93
+#: inc/classes/B4stCustomPostTypes.php:93
 msgid "Имя новой категории"
 msgstr ""
 
-#: inc/B4stCustomPostTypes.php:94
+#: inc/classes/B4stCustomPostTypes.php:94
 msgid "Категории"
 msgstr ""
 
-#: inc/B4stThemeSettings.php:32 inc/B4stThemeSettings.php:33
-#: inc/B4stThemeSettings.php:53
+#: inc/classes/B4stThemeSettings.php:39 inc/classes/B4stThemeSettings.php:40
+#: inc/classes/B4stThemeSettings.php:55
 msgid "Настройки темы"
 msgstr ""
 
-#: inc/B4stThemeSettings.php:78
+#: inc/classes/B4stThemeSettings.php:80
 msgid "Контакты"
 msgstr ""
 
-#: inc/B4stThemeSettings.php:85
+#: inc/classes/B4stThemeSettings.php:87
 msgid "Email"
 msgstr ""
 
-#: inc/B4stThemeSettings.php:93
+#: inc/classes/B4stThemeSettings.php:95
 msgid "Номер телефона"
 msgstr ""
 
-#: inc/B4stThemeSettings.php:101
+#: inc/classes/B4stThemeSettings.php:103
 msgid "Адрес"
 msgstr ""
 
-#: inc/B4stThemeSettings.php:109
+#: inc/classes/B4stThemeSettings.php:111
 msgid "Профили социальных сетей"
 msgstr ""
 
-#: inc/B4stThemeSettings.php:116
-msgid "Facebook"
+#: inc/classes/B4stThemeSettings.php:118
+msgid "Соц. сети"
 msgstr ""
 
-#: inc/B4stThemeSettings.php:124
-msgid "Twitter"
-msgstr ""
-
-#: inc/B4stThemeSettings.php:132
-msgid "Youtube"
-msgstr ""
-
-#: inc/B4stThemeSettings.php:140
-msgid "Instagram"
-msgstr ""
-
-#: inc/B4stThemeSettings.php:148
+#: inc/classes/B4stThemeSettings.php:126
 msgid "Баннеры"
 msgstr ""
 
-#: inc/B4stThemeSettings.php:155
+#: inc/classes/B4stThemeSettings.php:133
 msgid "Изображения и ссылки для баннеров"
 msgstr ""
 
-#: inc/B4stThemeSettings.php:163
-msgid "Другие настройки"
-msgstr ""
-
-#: inc/B4stThemeSettings.php:170
-msgid "Остальные настройки темы"
-msgstr ""
-
-#: inc/B4stThemeSettings.php:188
-msgid "Настройки обновлены."
-msgstr ""
-
-#: inc/B4stThemeSettings.php:225
+#: inc/classes/B4stThemeSettings.php:167
 msgid "Неверный номер телефона!"
 msgstr ""
 
-#: inc/B4stThemeSettings.php:302 inc/B4stThemeSettings.php:304
-#: inc/B4stThemeSettings.php:500
+#: inc/classes/B4stThemeSettings.php:194
+msgid ""
+"Поля `Название сети` и `Иконка` пустые. Должно быть заполнено хотя бы одно "
+"поле!"
+msgstr ""
+
+#: inc/classes/B4stThemeSettings.php:206
+msgid "Ошибка в поле URL!"
+msgstr ""
+
+#: inc/classes/B4stThemeSettings.php:240
+msgid "Настройки обновлены."
+msgstr ""
+
+#: inc/classes/B4stThemeSettings.php:277 inc/classes/B4stThemeSettings.php:279
+#: inc/classes/B4stThemeSettings.php:467
 msgid "Выберите баннер"
 msgstr ""
 
-#: inc/B4stThemeSettings.php:344
+#: inc/classes/B4stThemeSettings.php:319
 msgid "Введите контактную информацию."
 msgstr ""
 
-#: inc/B4stThemeSettings.php:351
+#: inc/classes/B4stThemeSettings.php:326
 msgid "Введите адреса профилей для социальных сетей."
 msgstr ""
 
-#: inc/B4stThemeSettings.php:358
+#: inc/classes/B4stThemeSettings.php:333
 msgid "Баннеры."
 msgstr ""
 
-#: inc/B4stThemeSettings.php:365
-msgid "Настройки, не подпадающие под другие категории."
-msgstr ""
-
-#: inc/B4stThemeSettings.php:376
+#: inc/classes/B4stThemeSettings.php:344
 msgid ""
 "Если email не указан, будет использоваться почта из основных настроек CMS."
 msgstr ""
 
-#: inc/B4stThemeSettings.php:399
+#: inc/classes/B4stThemeSettings.php:367
 msgid ""
 "Вводите номера в международном формате. Для удаления номера просто очистите "
 "поле."
 msgstr ""
 
-#: inc/B4stThemeSettings.php:411
-msgid "Введите адрес. Поддерживаются простейшие html-теги."
+#: inc/classes/B4stThemeSettings.php:396 inc/classes/B4stThemeSettings.php:405
+msgid "Название сети"
 msgstr ""
 
-#: inc/B4stThemeSettings.php:461
-msgid "Баннер для левой колонки главной страницы"
+#: inc/classes/B4stThemeSettings.php:397 inc/classes/B4stThemeSettings.php:406
+msgid "Класс иконки FA5"
 msgstr ""
 
-#: inc/B4stThemeSettings.php:466
-msgid "Баннер для правой колонки всего сайта"
+#: inc/classes/B4stThemeSettings.php:397 inc/classes/B4stThemeSettings.php:406
+msgid "Класс иконки Font Awesome 5"
 msgstr ""
 
-#: inc/B4stThemeSettings.php:479
-msgid "Баннер"
+#: inc/classes/B4stThemeSettings.php:398 inc/classes/B4stThemeSettings.php:407
+msgid "URL профиля сети"
 msgstr ""
 
-#: inc/B4stThemeSettings.php:528
+#: inc/classes/B4stThemeSettings.php:398 inc/classes/B4stThemeSettings.php:407
+msgid "URL социальной сети"
+msgstr ""
+
+#: inc/classes/B4stThemeSettings.php:404
+msgid "Добавьте новую сеть"
+msgstr ""
+
+#: inc/classes/B4stThemeSettings.php:411
+msgid "Для удаления сети просто очистите соответствующее поле URL."
+msgstr ""
+
+#: inc/classes/B4stThemeSettings.php:412
 msgid ""
-"Минимальное значение количества просмотров для присвоения ярлыка `Популярное`"
+" Список всех иконок <a href=\"https://fontawesome.com/icons?d=gallery\" "
+"target=\"_blank\">здесь.</a>."
 msgstr ""
 
-#: inc/B4stThemeSettings.php:529
-msgid "Минимум "
+#: inc/classes/B4stThemeSettings.php:413
+msgid ""
+" По умолчанию доступны Facebook, Instagram, Linkedin, Telegram, Twitter, "
+"Youtube и RSS."
+msgstr ""
+
+#: inc/classes/B4stThemeSettings.php:414
+msgid ""
+" Если Вам нужны другие, обратитесь к программисту с просьбой добавить "
+"необходимую иконку."
+msgstr ""
+
+#: inc/classes/B4stThemeSettings.php:428
+msgid "Баннер 1"
+msgstr ""
+
+#: inc/classes/B4stThemeSettings.php:433
+msgid "Баннер 2"
+msgstr ""
+
+#: inc/classes/B4stThemeSettings.php:446
+msgid "Баннер"
 msgstr ""
 
 #: inc/cleanup.php:24
 msgid "<strong>Ошибка</strong>: Неверный ввод!"
 msgstr ""
 
-#: inc/index-pagination.php:18
-msgid "<i class=\"far fa-angle-left\"></i> Новее"
+#: inc/navbar.php:5
+msgid "Главное меню"
 msgstr ""
 
-#: inc/index-pagination.php:19
-msgid "Старее <i class=\"far fa-angle-right\"></i>"
+#: inc/single-split-pagination.php:18
+msgid "Pages:"
 msgstr ""
 
-#: inc/navbar.php:62
-msgid "Навигация"
+#: inc/single-split-pagination.php:34
+msgid "Страница "
 msgstr ""
 
-#: inc/setup.php:85 loops/index-post.php:30 loops/index-post.php:33
-msgid "Читать дальше"
+#: inc/single-split-pagination.php:34
+msgid " из "
 msgstr ""
 
 #: inc/widgets.php:12
@@ -298,6 +329,116 @@ msgstr ""
 msgid "Извините, такая страница не существует."
 msgstr ""
 
+#: loops/comments.php:12
+msgid "Эта статья защищена паролем. Введите пароль, чтобы увидеть комментарии"
+msgstr ""
+
+#: loops/comments.php:43
+msgid "в"
+msgstr ""
+
+#: loops/comments.php:46
+msgid "Ваш комментарий на модерации."
+msgstr ""
+
+#: loops/comments.php:60
+msgid "<i class=\"fas fa-reply\"></i> Ответить"
+msgstr ""
+
+#: loops/comments.php:65
+msgid "<i class=\"fas fa-edit\"></i> Редактировать"
+msgstr ""
+
+#. translators: 1: title.
+#: loops/comments.php:83
+msgid "Комментарии"
+msgstr ""
+
+#. translators: 1: title.
+#: loops/comments.php:93
+#, php-format
+msgid "Один комментарий к &ldquo;%1$s&rdquo;"
+msgstr ""
+
+#. translators: 1: comment count number, 2: title.
+#: loops/comments.php:99
+#, php-format
+msgctxt "comments title"
+msgid "%1$s комментарий к &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s комментариев к &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+#: loops/comments.php:118
+msgid "Оставьте первый комментарий."
+msgstr ""
+
+#: loops/comments.php:120
+msgid "Комментарии к этой статье закрыты."
+msgstr ""
+
+#: loops/comments.php:128
+msgid "Оставьте комментарий"
+msgstr ""
+
+#: loops/comments.php:128
+#, php-format
+msgid "Ответить %s"
+msgstr ""
+
+#: loops/comments.php:131
+#, php-format
+msgid "Вы должны <a href=\"%s\">войти</a> чтобы оставить комментарий."
+msgstr ""
+
+#: loops/comments.php:138
+msgid "Вы вошли как"
+msgstr ""
+
+#: loops/comments.php:140
+msgid "Выйти из этого аккаунта"
+msgstr ""
+
+#: loops/comments.php:140
+msgid "Выйти"
+msgstr ""
+
+#: loops/comments.php:145 loops/comments.php:150
+msgid "Ваше имя"
+msgstr ""
+
+#: loops/comments.php:147
+msgid "(обязательно)"
+msgstr ""
+
+#: loops/comments.php:157 loops/comments.php:162
+msgid "Ваш email"
+msgstr ""
+
+#: loops/comments.php:159
+msgid "(обязательно, но не будет опубликовано)"
+msgstr ""
+
+#: loops/comments.php:169
+msgid "Ваш сайт"
+msgstr ""
+
+#: loops/comments.php:169
+msgid "не обязательно"
+msgstr ""
+
+#: loops/comments.php:171
+msgid "URL вашего сайта"
+msgstr ""
+
+#: loops/comments.php:178 loops/comments.php:180
+msgid "Ваш комментарий"
+msgstr ""
+
+#: loops/comments.php:185
+msgid "Отправить"
+msgstr ""
+
 #: loops/index-loop.php:21
 msgid "Пред."
 msgstr ""
@@ -306,11 +447,11 @@ msgstr ""
 msgid "След."
 msgstr ""
 
-#: loops/index-post.php:18 loops/single-post.php:16
+#: loops/index-post.php:19 loops/single-post.php:16
 msgid "От "
 msgstr ""
 
-#: loops/index-post.php:21
+#: loops/index-post.php:22
 #, php-format
 msgctxt "Link to comments with total number"
 msgid "Один комментарий"
@@ -318,122 +459,8 @@ msgid_plural "%1$s комментариев"
 msgstr[0] ""
 msgstr[1] ""
 
-#: loops/index-post.php:30 loops/index-post.php:33
-msgid "&hellip; "
-msgstr ""
-
-#: loops/search-results.php:16
+#: loops/search-results.php:19
 msgid "Извините, поиск не дал результатов."
-msgstr ""
-
-#: loops/single-post-comments.php:31
-msgid "в"
-msgstr ""
-
-#: loops/single-post-comments.php:34
-msgid "Ваш комментарий на модерации."
-msgstr ""
-
-#: loops/single-post-comments.php:48
-msgid "<i class=\"far fa-reply\"></i> Ответить"
-msgstr ""
-
-#: loops/single-post-comments.php:53
-msgid "<i class=\"far fa-edit\"></i> Редактировать"
-msgstr ""
-
-#: loops/single-post-comments.php:72
-msgid "Эта статья защищена паролем. Введите пароль, чтобы увидеть комментарии"
-msgstr ""
-
-#. translators: 1: title.
-#: loops/single-post-comments.php:83
-msgid "Комментарии"
-msgstr ""
-
-#. translators: 1: title.
-#: loops/single-post-comments.php:93
-#, php-format
-msgid "Один комментарий к &ldquo;%1$s&rdquo;"
-msgstr ""
-
-#. translators: 1: comment count number, 2: title.
-#: loops/single-post-comments.php:99
-#, php-format
-msgctxt "comments title"
-msgid "%1$s комментарий к &ldquo;%2$s&rdquo;"
-msgid_plural "%1$s комментариев к &ldquo;%2$s&rdquo;"
-msgstr[0] ""
-msgstr[1] ""
-
-#: loops/single-post-comments.php:118
-msgid "Оставьте первый комментарий."
-msgstr ""
-
-#: loops/single-post-comments.php:120
-msgid "Комментарии к этой статье закрыты."
-msgstr ""
-
-#: loops/single-post-comments.php:128
-msgid "Оставьте комментарий"
-msgstr ""
-
-#: loops/single-post-comments.php:128
-#, php-format
-msgid "Ответить %s"
-msgstr ""
-
-#: loops/single-post-comments.php:131
-#, php-format
-msgid "Вы должны <a href=\"%s\">войти</a> чтобы оставить комментарий."
-msgstr ""
-
-#: loops/single-post-comments.php:138
-msgid "Вы вошли как"
-msgstr ""
-
-#: loops/single-post-comments.php:140
-msgid "Выйти из этого аккаунта"
-msgstr ""
-
-#: loops/single-post-comments.php:140
-msgid "Выйти"
-msgstr ""
-
-#: loops/single-post-comments.php:145 loops/single-post-comments.php:150
-msgid "Ваше имя"
-msgstr ""
-
-#: loops/single-post-comments.php:147
-msgid "(обязательно)"
-msgstr ""
-
-#: loops/single-post-comments.php:157 loops/single-post-comments.php:162
-msgid "Ваш email"
-msgstr ""
-
-#: loops/single-post-comments.php:159
-msgid "(обязательно, но не будет опубликовано)"
-msgstr ""
-
-#: loops/single-post-comments.php:169
-msgid "Ваш сайт"
-msgstr ""
-
-#: loops/single-post-comments.php:169
-msgid "не обязательно"
-msgstr ""
-
-#: loops/single-post-comments.php:171
-msgid "URL вашего сайта"
-msgstr ""
-
-#: loops/single-post-comments.php:178 loops/single-post-comments.php:180
-msgid "Ваш комментарий"
-msgstr ""
-
-#: loops/single-post-comments.php:185
-msgid "Отправить"
 msgstr ""
 
 #: loops/single-post.php:18
@@ -453,7 +480,7 @@ msgid "Результат поиска для"
 msgstr ""
 
 #. Theme Name of the plugin/theme
-msgid "b4st-extended"
+msgid "b4st-extended-webpack"
 msgstr ""
 
 #. Theme URI of the plugin/theme
@@ -461,7 +488,8 @@ msgid "https://github.com/ArroWsGM/b4st"
 msgstr ""
 
 #. Description of the plugin/theme
-msgid "Bootstrap Starter Theme for WordPress. Using Twitter Bootstrap 4"
+msgid ""
+"A Bootstrap 4 Starter Theme for WordPress with Webpack 4 assets management"
 msgstr ""
 
 #. Author of the plugin/theme

@@ -13,9 +13,9 @@ The Single Post
             </h1>
             <div class="header-meta text-muted">
                 <?php
-                _e( 'От ', _TTD );
+                _e( 'От ', _B4ST_TTD );
                 the_author_posts_link();
-                _e( ' в ', _TTD );
+                _e( ' в ', _B4ST_TTD );
                 b4st_post_date();
                 ?>
             </div>
@@ -29,17 +29,17 @@ The Single Post
         </main>
         <footer class="mt-5 border-top pt-3">
             <p>
-                <?php _e( 'Категория: ', _TTD );
+                <?php _e( 'Категория: ', _B4ST_TTD );
                 the_category( ', ' ) ?> | <?php if ( has_tag() ) {
                     the_tags( 'Tags: ', ', ' ); ?> | <?php }
-                _e( 'Комментариев', _TTD ); ?>: <?php printf( number_format_i18n( get_comments_number() ) ); ?>
+                _e( 'Комментариев', _B4ST_TTD ); ?>: <?php printf( number_format_i18n( get_comments_number() ) ); ?>
             </p>
             <div class="author-bio media border-top pt-3">
                 <?php b4st_author_avatar(); ?>
                 <div class="media-body ml-3">
                     <p class="h4 author-name"><?php the_author_posts_link(); ?></p>
                     <p class="author-description"><?php b4st_author_description(); ?></p>
-                    <p class="author-other-posts mb-0 border-top pt-3"><?php _e( 'Другие статьи от ', _TTD );
+                    <p class="author-other-posts mb-0 border-top pt-3"><?php _e( 'Другие статьи от ', _B4ST_TTD );
                         the_author_posts_link(); ?></p>
                 </div>
             </div><!-- /.author-bio -->
@@ -48,20 +48,18 @@ The Single Post
     <?php
     if ( comments_open() || get_comments_number() ) :
         //comments_template();
-        comments_template( '/loops/single-post-comments.php' );
+        comments_template( '/loops/comments.php' );
     endif;
 endwhile;
-else :
-    get_template_part( 'loops/404' );
 endif;
 ?>
 
 
 <div class="row mt-5 border-top pt-3">
     <div class="col">
-        <?php previous_post_link( '%link', '<i class="far fa-fw fa-arrow-left"></i> ' . '%title' ); ?>
+        <?php previous_post_link( '%link', '<i class="fas fa-fw fa-arrow-left"></i> ' . '%title' ); ?>
     </div>
     <div class="col text-right">
-        <?php next_post_link( '%link', '%title' . ' <i class="far fa-fw fa-arrow-right"></i>' ); ?>
+        <?php next_post_link( '%link', '%title' . ' <i class="fas fa-fw fa-arrow-right"></i>' ); ?>
     </div>
 </div>

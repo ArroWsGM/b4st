@@ -7,7 +7,7 @@
             <div id="content" role="main">
                 <header class="mb-4 border-bottom">
                     <h1>
-                        <?php _e( 'Результат поиска для', _TTD ); ?> &ldquo;<?php the_search_query(); ?>&rdquo;
+                        <?php _e( 'Результат поиска для', _B4ST_TTD ); ?> &ldquo;<?php the_search_query(); ?>&rdquo;
                     </h1>
                 </header>
                 <?php get_template_part( 'loops/search-results' ); ?>

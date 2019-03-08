@@ -18,7 +18,5 @@
     </article>
 <?php
 endwhile;
-else :
-    get_template_part( 'loops/404' );
 endif;
 ?>

@@ -1,0 +1,6 @@
+//Fine-tune bootstrap here...
+
+$enable-rounded: false;
+
+//...and load styles
+@import "../../../node_modules/bootstrap/scss/bootstrap";

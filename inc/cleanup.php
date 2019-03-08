@@ -21,7 +21,7 @@ add_action( 'init', 'b4st_cleanup_head' );
 
 if ( ! function_exists( 'b4st_show_less_login_info' ) ) {
     function b4st_show_less_login_info() {
-        return __( '<strong>Ошибка</strong>: Неверный ввод!', _TTD );
+        return __( '<strong>Ошибка</strong>: Неверный ввод!', _B4ST_TTD );
     }
 }
 add_filter( 'login_errors', 'b4st_show_less_login_info' );

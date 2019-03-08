@@ -13,19 +13,17 @@
 
 <?php endwhile; ?>
 
-    <?php if ( function_exists( 'b4st_pagination' ) ) {
-        b4st_pagination();
+    <?php if ( class_exists( 'B4stHelpers' ) ) {
+        B4stHelpers::get_pagination();
     } else if ( is_paged() ) { ?>
         <ul class="pagination">
             <li class="page-item older">
-                <?php next_posts_link( '<i class="far fa-arrow-left"></i> ' . __( 'Пред.', _TTD ) ) ?></li>
+                <?php next_posts_link( '<i class="fas fa-arrow-left"></i> ' . __( 'Пред.', _B4ST_TTD ) ) ?></li>
             <li class="page-item newer">
-                <?php previous_posts_link( __( 'След.', _TTD ) . ' <i class="far fa-arrow-right"></i>' ) ?></li>
+                <?php previous_posts_link( __( 'След.', _B4ST_TTD ) . ' <i class="fas fa-arrow-right"></i>' ) ?></li>
         </ul>
     <?php } ?>
 
 <?php
-else :
-    get_template_part( 'loops/404' );
 endif;
 ?>

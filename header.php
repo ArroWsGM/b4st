@@ -1,4 +1,7 @@
 <?php
+if ( ! class_exists( 'B4stHelpers' ) )
+    wp_die( 'Class B4stHelpers not found!' );
+
 global $b4sth;
 ?>
 <!DOCTYPE html>
@@ -31,11 +34,20 @@ global $b4sth;
                              'fallback_cb'    => '__return_false',
                              'items_wrap'     => '<ul id="%1$s" class="navbar-nav mr-auto mt-2 mt-lg-0 %2$s">%3$s</ul>',
                              'depth'          => 2,
-                             'walker'         => new b4st_walker_nav_menu(),
+                             'walker'         => new B4stWalkerNavMenu(),
                          ) );
             ?>
 
-            <?php $b4sth->search_form(true, 'form-inline ml-auto pt-2 pt-md-0', 'header_search') ?>
+            <?php $b4sth->the_socials( 'navbar-text ml-lg-4' ); ?>
+
+            <form class="form-inline ml-auto pt-2 pt-md-0" role="search" method="get" id="header_search" action="<?php echo home_url( '/' ) ?>">
+                <div class="input-group">
+                    <input class="form-control" type="text" value="<?php the_search_query() ?>" placeholder="<?php _e( 'Поиск', _B4ST_TTD ) ?>..." name="s" id="header_search_s">
+                    <div class="input-group-append">
+                        <button type="submit" id="header_search_searchsubmit" value="<?php _e( 'Поиск', _B4ST_TTD ) ?>" class="btn btn-primary"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </form>
         </div>
 
     </div>

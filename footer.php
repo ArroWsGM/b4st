@@ -21,5 +21,5 @@
 
 
 <?php wp_footer(); ?>
-</body>
-</html>
+</body><!-- /body from header.php -->
+</html><!-- /html from header.php -->

@@ -33,6 +33,14 @@ if ( ! function_exists('b4st_setup') ) {
 		) );
 
 		add_theme_support('automatic-feed-links');
+
+        add_theme_support( 'custom-logo', array(
+            'height'      => 110,
+            'width'       => 110,
+            'flex-height' => true,
+            'flex-width'  => true,
+            'header-text' => array( 'site-title' ),
+        ) );
 	}
 }
 add_action('init', 'b4st_setup');
@@ -80,13 +88,13 @@ if ( ! function_exists( 'b4st_post_date' ) ) {
 	}
 }
 
-if ( ! function_exists('b4st_excerpt_more') ) {
-	function b4st_excerpt_more() {
-		return '&hellip;</p><p><a class="btn btn-primary" href="'. get_permalink() . '">' . __('Читать дальше', _TTD) . ' <i class="far fa-arrow-right"></i>' . '</a></p>';
-	}
+function change_logo_class( $html ) {
+    $html = str_replace( 'class="custom-logo-link"', 'class="custom-logo-link navbar-brand"', $html );
+
+    return $html;
 }
-add_filter('excerpt_more', 'b4st_excerpt_more');
+add_filter( 'get_custom_logo', 'change_logo_class' );
 
 add_action( 'after_setup_theme', function () {
-    load_theme_textdomain( _TTD, get_template_directory() . '/languages' );
+    load_theme_textdomain( _B4ST_TTD, get_template_directory() . '/languages' );
 } );

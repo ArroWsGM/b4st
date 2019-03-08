@@ -21,7 +21,7 @@ if (
                 <header class="mb-4 border-bottom">
                     <?php if ( $isAuthor === true ): ?>
                         <h1>
-                            <?php _e( 'Автор: ', _TTD );
+                            <?php _e( 'Автор: ', _B4ST_TTD );
                             echo get_the_author_meta( 'display_name' ); ?>
                         </h1>
                     <?php endif; ?>

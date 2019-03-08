@@ -9,9 +9,9 @@ function b4st_widgets_init() {
   Sidebar (one widget area)
    */
   register_sidebar( array(
-    'name'            => __( 'Сайдбар', _TTD ),
+    'name'            => __( 'Сайдбар', _B4ST_TTD ),
     'id'              => 'sidebar-widget-area',
-    'description'     => __( 'Виджеты сайдбара', _TTD ),
+    'description'     => __( 'Виджеты сайдбара', _B4ST_TTD ),
     'before_widget'   => '<section class="%1$s %2$s">',
     'after_widget'    => '</section>',
     'before_title'    => '<h2 class="h4">',
@@ -31,9 +31,9 @@ function b4st_widgets_init() {
    */
 
   register_sidebar( array(
-    'name'            => __( 'Подвал', _TTD ),
+    'name'            => __( 'Подвал', _B4ST_TTD ),
     'id'              => 'footer-widget-area',
-    'description'     => __( 'Виджеты подвала', _TTD ),
+    'description'     => __( 'Виджеты подвала', _B4ST_TTD ),
     'before_widget'   => '<div class="%1$s %2$s col-sm">',
     'after_widget'    => '</div>',
     'before_title'    => '<h2 class="h4">',

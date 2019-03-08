@@ -9,10 +9,13 @@
         <header>
             <h2><a href="<?php the_permalink(); ?>"><?php the_title() ?></a></h2>
         </header>
-        <?php the_excerpt(); ?>
+        <?php
+        global $b4sth;
+        echo $b4sth->get_the_excerpt(200, false );
+        ?>
     </article>
 <?php endwhile; else: ?>
     <div class="alert alert-warning">
-        <i class="far fa-exclamation-triangle"></i> <?php _e( 'Извините, поиск не дал результатов.', _TTD ); ?>
+        <i class="fas fa-exclamation-triangle"></i> <?php _e( 'Извините, поиск не дал результатов.', _B4ST_TTD ); ?>
     </div>
 <?php endif; ?>
