@@ -2,8 +2,8 @@ const getSlick = ($wrap, {
     autoplay = true,
     autoplaySpeed = 2000,
     centerMode = false,
-    prevArrow = '<span class="slick-arrow prev"><i class="fas fa-long-arrow-left"></i></span>',
-    nextArrow = '<span class="slick-arrow next"><i class="fas fa-long-arrow-right"></i></span>',
+    prevArrow = '<span class="slick-arrow prev"><i class="fas fa-long-arrow-alt-left"></i></span>',
+    nextArrow = '<span class="slick-arrow next"><i class="fas fa-long-arrow-alt-right"></i></span>',
     slidesToShow = 1,
     slideToScroll = 1,
     responsive = []
