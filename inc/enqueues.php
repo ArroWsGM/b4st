@@ -3,7 +3,7 @@
  * Enqueues
  */
 if (
-    ! defined( '_T_VERSION' ) ||
+    ! defined( '_B4ST_VERSION' ) ||
     ! defined( '_B4ST_TTD' )
 ) {
     wp_die( 'Core constants missing in  ' . basename(__FILE__, '.php') );
@@ -11,7 +11,7 @@ if (
 
 if ( ! function_exists( 'b4st_enqueues' ) ) {
     function b4st_enqueues() {
-        wp_register_style( 'b4st-css', get_template_directory_uri() . "/assets/css/styles.min.css", null, _T_VERSION );
+        wp_register_style( 'b4st-css', get_template_directory_uri() . "/assets/css/styles.min.css", null, _B4ST_VERSION );
         wp_enqueue_style( 'b4st-css' );
 
         if ( ! is_admin() ) {
@@ -27,7 +27,7 @@ if ( ! function_exists( 'b4st_enqueues' ) ) {
         }
 
         //Custom script, includes font awesome 5
-        wp_register_script( 'b4st-js', get_template_directory_uri() . '/assets/js/script.min.js', array( 'jquery' ), _T_VERSION, true );
+        wp_register_script( 'b4st-js', get_template_directory_uri() . '/assets/js/script.min.js', array( 'jquery' ), _B4ST_VERSION, true );
         wp_enqueue_script( 'b4st-js' );
 
         if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -39,7 +39,7 @@ add_action( 'wp_enqueue_scripts', 'b4st_enqueues', 100 );
 
 if ( ! function_exists( 'b4st_admin_enqueues' ) ) {
     function b4st_admin_enqueues() {
-        wp_register_style( 'b4st-admin-css', get_template_directory_uri() . "/assets/css/styles-admin.min.css", null, _T_VERSION );
+        wp_register_style( 'b4st-admin-css', get_template_directory_uri() . "/assets/css/styles-admin.min.css", null, _B4ST_VERSION );
         wp_enqueue_style( 'b4st-admin-css' );
     }
 }
@@ -47,7 +47,7 @@ add_action( 'admin_enqueue_scripts', 'b4st_admin_enqueues', 100 );
 
 if ( ! function_exists( 'b4st_block_editor_styles' ) ) {
     function b4st_block_editor_styles() {
-        wp_register_style( 'b4st-editor', get_template_directory_uri() . "/assets/css/styles-editor.min.css", null, _T_VERSION );
+        wp_register_style( 'b4st-editor', get_template_directory_uri() . "/assets/css/styles-editor.min.css", null, _B4ST_VERSION );
         wp_enqueue_style( 'b4st-editor' );
     }
 }

@@ -12,20 +12,15 @@ class B4st {
     protected $dir;
 
     /**
-     * @var B4st Static property to hold singleton instance
-     */
-    static $instance = false;
-
-    /**
      * B4st constructor.
      * @uses wp_die()
      */
     public function __construct() {
         if (
                 ! defined( '_B4ST_TTD' ) ||
-                ! defined( '_FONTICON_PLACEHOLDER' ) ||
-                ! defined( '_DEFAULT_LOGO_SRC' ) ||
-                ! defined( '_LOGGING_ON' )
+                ! defined( '_B4ST_FONTICON_PLACEHOLDER' ) ||
+                ! defined( '_B4ST_DEFAULT_LOGO_SRC' ) ||
+                ! defined( '_B4ST_LOGGING_ON' )
         ) {
             wp_die('Can\'t find core constant!');
         }
@@ -36,29 +31,15 @@ class B4st {
     }
 
     /**
-     * Singleton. If an instance exists, this returns it.  If not, it creates one and
-     * returns it.
-     *
-     * @return B4st
-     */
-    public static function getInstance() {
-        if ( ! self::$instance ) {
-            self::$instance = new self;
-        }
-
-        return self::$instance;
-    }
-
-    /**
      * Prepare data and write it to log
      *
      * @param mixed $log
      *
-     * @uses _LOGGING_ON
+     * @uses _B4ST_LOGGING_ON
      * @uses log_write()
      */
     public function log( $log ) {
-        if ( _LOGGING_ON ) {
+        if ( _B4ST_LOGGING_ON ) {
             if ( is_array( $log ) || is_object( $log ) ) {
                 $this->log_write( print_r( $log, true ) );
             } else {
@@ -91,7 +72,7 @@ class B4st {
      * @uses get_theme_mod()
      * @uses wp_get_attachment_image_url()
      * @uses get_template_directory_uri()
-     * @uses _DEFAULT_LOGO_SRC
+     * @uses _B4ST_DEFAULT_LOGO_SRC
      *
      * @return string
      */
@@ -102,7 +83,7 @@ class B4st {
             $logo = wp_get_attachment_image_url( $custom_logo_id, 'full', true );
             return $logo ?: '';
         } else {
-            return _DEFAULT_LOGO_SRC ? get_template_directory_uri() . _DEFAULT_LOGO_SRC : '';
+            return _B4ST_DEFAULT_LOGO_SRC ? get_template_directory_uri() . _B4ST_DEFAULT_LOGO_SRC : '';
         }
     }
 
@@ -419,7 +400,7 @@ class B4st {
      * @param string $class additional wrapper class
      * @param bool $show_slug Show network name if ico presents
      *
-     * @uses _FONTICON_PLACEHOLDER
+     * @uses _B4ST_FONTICON_PLACEHOLDER
      *
      * @return string
      */
@@ -437,7 +418,7 @@ class B4st {
                 $item = '<li><a href="' . $social['url'] . '" target="_blank" rel="nofollow noopener noreferrer">%s%s</a></li>';
 
                 if ( $social['ico'] ) {
-                    $social['ico'] = sprintf( _FONTICON_PLACEHOLDER, $social['ico'] );
+                    $social['ico'] = sprintf( _B4ST_FONTICON_PLACEHOLDER, $social['ico'] );
 
                     if ( $show_slug && $social['slug'] ) {
                         $social['slug'] = '&nbsp;' . $social['slug'];
