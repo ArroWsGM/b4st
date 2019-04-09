@@ -2,7 +2,7 @@
 
 class B4stHelpers extends B4st {
     /**
-     * @var B4st Static property to hold singleton instance
+     * @var B4stHelpers Static property to hold singleton instance
      */
     static $instance = false;
 
@@ -17,7 +17,7 @@ class B4stHelpers extends B4st {
      * Singleton. If an instance exists, this returns it.  If not, it creates one and
      * returns it.
      *
-     * @return B4st
+     * @return B4stHelpers
      */
     public static function getInstance() {
         if ( ! self::$instance ) {
