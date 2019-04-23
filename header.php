@@ -42,7 +42,15 @@ global $b4sth;
 
             <form class="form-inline ml-auto pt-2 pt-md-0" role="search" method="get" id="header_search" action="<?php echo home_url( '/' ) ?>">
                 <div class="input-group">
-                    <input class="form-control" type="text" value="<?php the_search_query() ?>" placeholder="<?php _e( 'Поиск', _B4ST_TTD ) ?>..." name="s" id="header_search_s">
+                    <input
+                           id="header_search_s"
+                           class="form-control"
+                           type="text"
+                           value="<?php the_search_query() ?>"
+                           placeholder="<?php _e( 'Поиск', _B4ST_TTD ) ?>..."
+                           aria-label="<?php _e( 'Поиск', _B4ST_TTD ) ?>"
+                           name="s"
+                    >
                     <div class="input-group-append">
                         <button type="submit" id="header_search_searchsubmit" value="<?php _e( 'Поиск', _B4ST_TTD ) ?>" class="btn btn-primary"><i class="fas fa-search"></i></button>
                     </div>
