@@ -13,7 +13,7 @@ class B4stThemeSettings {
      */
     public function __construct() {
         if (
-                ! defined( '_T_VERSION' ) ||
+                ! defined( '_B4ST_VERSION' ) ||
                 ! defined( '_B4ST_TTD' )
         ) {
             wp_die( 'Core constants missing in  ' . basename(__FILE__, '.php') );
@@ -250,7 +250,7 @@ class B4stThemeSettings {
     public function add_media_support() {
         wp_enqueue_media();
 
-        wp_register_style( _B4ST_TTD . '-admin-css', get_template_directory_uri() . '/assets/css/styles-admin.min.css', null, _T_VERSION );
+        wp_register_style( _B4ST_TTD . '-admin-css', get_template_directory_uri() . '/assets/css/styles-admin.min.css', null, _B4ST_VERSION );
         wp_enqueue_style( _B4ST_TTD . '-admin-css' );
     }
 

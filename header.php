@@ -45,11 +45,11 @@ global $b4sth;
                     <input
                            id="header_search_s"
                            class="form-control"
+                           name="s"
                            type="text"
                            value="<?php the_search_query() ?>"
                            placeholder="<?php _e( 'Поиск', _B4ST_TTD ) ?>..."
                            aria-label="<?php _e( 'Поиск', _B4ST_TTD ) ?>"
-                           name="s"
                     >
                     <div class="input-group-append">
                         <button type="submit" id="header_search_searchsubmit" value="<?php _e( 'Поиск', _B4ST_TTD ) ?>" class="btn btn-primary"><i class="fas fa-search"></i></button>

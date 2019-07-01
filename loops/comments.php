@@ -156,7 +156,7 @@ endif;
                     <div class="form-group">
                         <label for="email"><?php _e( 'Ваш email', _B4ST_TTD );
                             if ( $req ) {
-                                echo '&nbsp;<span class="text-muted">' . _e( '(обязательно, но не будет опубликовано)', _B4ST_TTD ) . '</span>';
+                                echo '&nbsp;<span class="text-muted">' . __( '(обязательно, но не будет опубликовано)', _B4ST_TTD ) . '</span>';
                             } ?></label>
                         <input type="email" class="form-control" name="email" id="email"
                                placeholder="<?php _e( 'Ваш email', _B4ST_TTD ); ?>"
