@@ -138,7 +138,7 @@ class B4stThemeSettings {
         add_settings_field(
             'analytics_callback_foot', // ID
             __( 'Коды и идентификаторы аналитики и рекламных аккаунтов', _B4ST_TTD ), // Title
-            array( $this, 'analytics_callback' ), // Callback
+            array( $this, 'analytics_callback_foot' ), // Callback
             _B4ST_TTD . '-settings', // Page
             'analytics_section' // Section
         );
