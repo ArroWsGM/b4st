@@ -122,6 +122,28 @@ class B4stThemeSettings {
         );
 
         add_settings_section(
+            'analytics_section', // ID
+            __( 'Аналитика и реклама', _B4ST_TTD ), // Title
+            array( $this, 'print_analytics_section_info' ), // Callback
+            _B4ST_TTD . '-settings' // Page
+        );
+
+        add_settings_field(
+            'analytics_callback', // ID
+            __( 'Коды и идентификаторы аналитики и рекламных аккаунтов', _B4ST_TTD ), // Title
+            array( $this, 'analytics_callback' ), // Callback
+            _B4ST_TTD . '-settings', // Page
+            'analytics_section' // Section
+        );
+        add_settings_field(
+            'analytics_callback_foot', // ID
+            __( 'Коды и идентификаторы аналитики и рекламных аккаунтов', _B4ST_TTD ), // Title
+            array( $this, 'analytics_callback' ), // Callback
+            _B4ST_TTD . '-settings', // Page
+            'analytics_section' // Section
+        );
+
+        add_settings_section(
             'banners_section', // ID
             __( 'Баннеры', _B4ST_TTD ), // Title
             array( $this, 'print_banners_section_info' ), // Callback
