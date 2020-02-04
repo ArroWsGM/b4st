@@ -21,5 +21,6 @@
 
 
 <?php wp_footer(); ?>
+<?php echo isset( B4stHelpers::$options['analytics_foot'] ) ? B4stHelpers::$options['analytics_foot'] : '' ?>
 </body><!-- /body from header.php -->
 </html><!-- /html from header.php -->

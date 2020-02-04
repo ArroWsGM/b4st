@@ -485,6 +485,40 @@ class B4stThemeSettings {
 
         self::$banner_number++;
     }
+    public function print_analytics_section_info() {
+        _e( 'Настройки аналитики и рекламы.', _B4ST_TTD );
+    }
+    /**
+     * Get the settings option array and print one of its values
+     */
+    public function analytics_callback() {
+        ?>
+        <div class="section-preferences">
+            <h3><?php _e( 'SEO-аналитика в head.', _B4ST_TTD ); ?></h3>
+            <?php
+            $analytics_head = isset( $this->options['analytics_head'] ) ? $this->options['analytics_head'] : '';
+            echo '<p><label for="analytics_head">' . __( 'Вставьте код(ы) аналитики. Будьте внимательны! Ошибки в этом поле могут вызвать проблемы с отображением сайта или даже сделать его полностью неработоспособным!', _B4ST_TTD ) . '</label>';
+            echo '<textarea id="analytics_head" name="' . $this->on . '[analytics_head]" class="large-text code" rows="10" cols="25">' . $analytics_head . '</textarea></p>';
+            ?>
+        </div>
+        <?php
+    }
+
+    /**
+     * Get the settings option array and print one of its values
+     */
+    public function analytics_callback_foot() {
+        ?>
+        <div class="section-preferences">
+            <h3><?php _e( 'SEO-аналитика в foot.', _B4ST_TTD ); ?></h3>
+            <?php
+            $analytics_foot = isset( $this->options['analytics_foot'] ) ? $this->options['analytics_foot'] : '';
+            echo '<p><label for="analytics_foot">' . __( 'Вставьте код(ы) аналитики. Будьте внимательны! Ошибки в этом поле могут вызвать проблемы с отображением сайта или даже сделать его полностью неработоспособным!', _B4ST_TTD ) . '</label>';
+            echo '<textarea id="analytics_foot" name="' . $this->on . '[analytics_foot]" class="large-text code" rows="10" cols="25">' . $analytics_foot . '</textarea></p>';
+            ?>
+        </div>
+        <?php
+    }
 }
 
 if ( is_admin() ) {
