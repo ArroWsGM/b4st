@@ -516,7 +516,7 @@ class B4st {
      * @uses _B4ST_TTD
      *
      */
-    protected function get_lazy_img( $attachment_id, $size = 'thumbnail', $alt = '', $class = 'img-fluid d-block mx-auto' ) {
+    public function get_lazy_img( $attachment_id, $size = 'thumbnail', $alt = '', $class = 'img-fluid d-block mx-auto' ) {
         $src = wp_get_attachment_image_src( $attachment_id, $size );
         $img = '';
 
