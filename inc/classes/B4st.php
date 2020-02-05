@@ -20,6 +20,7 @@ class B4st {
                 ! defined( '_B4ST_TTD' ) ||
                 ! defined( '_B4ST_FONTICON_PLACEHOLDER' ) ||
                 ! defined( '_B4ST_DEFAULT_LOGO_SRC' ) ||
+                ! defined( '_B4ST_LAZYLOAD_DUMMY_IMG_SRC' ) ||
                 ! defined( '_B4ST_LOGGING_ON' )
         ) {
             wp_die('Can\'t find core constant!');
