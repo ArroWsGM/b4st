@@ -240,6 +240,25 @@ class B4stThemeSettings {
             }
         }
 
+        if ( isset( $input['analytics_head'] ) && ! empty( $input['analytics_head'] ) ) {
+            
+            $data = trim( $input['analytics_head'] );
+
+            if ( $data ) {
+                $new_input['analytics_head'] = $data;
+            }
+        }
+
+        if ( isset( $input['analytics_foot'] ) && ! empty( $input['analytics_foot'] ) ) {
+
+            $data = trim( $input['analytics_foot'] );
+
+            if ( $data ) {
+                $new_input['analytics_foot'] = $data;
+            }
+        }
+
+
         if ( isset( $input['banner_0'] ) ) {
             $new_input['banner_0'] = esc_url( $input['banner_0'], array( 'http', 'https' ) );
         }
