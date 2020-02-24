@@ -497,6 +497,11 @@ class B4st {
         echo $this->get_socials( $class, $show_slug );
     }
 
+    /**
+    *
+    */
+
+
 
 
     /**
@@ -567,33 +572,30 @@ class B4st {
         return $svg ? 'data:image/svg+xml;base64,' . base64_encode($svg) : '';
     }
 
+    public function b4st_post_date() {
+        if ( in_array( get_post_type(), array( 'post', 'attachment' ) ) ) {
+            $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
+
+            if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+                $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time> <time class="updated" datetime="%3$s">(updated %4$s)</time>';
+            }
+
+            $time_string = sprintf( $time_string,
+                esc_attr( get_the_date( 'c' ) ),
+                get_the_date(),
+                esc_attr( get_the_modified_date( 'c' ) ),
+                get_the_modified_date()
+            );
+
+            echo $time_string;
+        }
+    }
+
+    public function b4st_author_description() {
+        echo get_the_author_meta('user_description');
+    }
+
 }
 
-if ( ! function_exists( 'b4st_author_description' ) ) {
-	function b4st_author_description() {
-		echo get_the_author_meta('user_description');
-	}
-}
-
-if ( ! function_exists( 'b4st_post_date' ) ) {
-	function b4st_post_date() {
-		if ( in_array( get_post_type(), array( 'post', 'attachment' ) ) ) {
-			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
-
-			if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-				$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time> <time class="updated" datetime="%3$s">(updated %4$s)</time>';
-			}
-
-			$time_string = sprintf( $time_string,
-				esc_attr( get_the_date( 'c' ) ),
-				get_the_date(),
-				esc_attr( get_the_modified_date( 'c' ) ),
-				get_the_modified_date()
-			);
-
-			echo $time_string;
-		}
-	}
-}
 
 

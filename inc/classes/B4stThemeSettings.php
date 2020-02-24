@@ -241,7 +241,9 @@ class B4stThemeSettings {
         }
 
         if ( isset( $input['analytics_head'] ) && ! empty( $input['analytics_head'] ) ) {
-            
+            /**
+             * TODO: Some additional sanitization of head analytics for securing javascript
+             */
             $data = trim( $input['analytics_head'] );
 
             if ( $data ) {
@@ -250,7 +252,9 @@ class B4stThemeSettings {
         }
 
         if ( isset( $input['analytics_foot'] ) && ! empty( $input['analytics_foot'] ) ) {
-
+            /**
+             * TODO: Some additional sanitization of foot analytics for securing javascript
+             */
             $data = trim( $input['analytics_foot'] );
 
             if ( $data ) {
