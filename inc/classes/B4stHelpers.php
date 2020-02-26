@@ -11,6 +11,7 @@ class B4stHelpers extends B4st {
         parent::__construct();
 
         //Custom theme code below
+
     }
 
     /**

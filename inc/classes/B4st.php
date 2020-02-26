@@ -29,6 +29,9 @@ class B4st {
         $this->dir = get_stylesheet_directory();
         //Set theme options
         self::$options = get_option( _B4ST_TTD . '_theme_options' );
+
+        add_action( 'get_avatar', [_B4ST_TTD, 'avatar_attributes'] );
+        add_action( 'get_custom_logo', [_B4ST_TTD, 'change_logo_class'] );
     }
 
     /**
@@ -497,12 +500,6 @@ class B4st {
         echo $this->get_socials( $class, $show_slug );
     }
 
-    /**
-    *
-    */
-
-
-
 
     /**
      * Get lazy-load-ready image for slick slider
@@ -572,7 +569,7 @@ class B4st {
         return $svg ? 'data:image/svg+xml;base64,' . base64_encode($svg) : '';
     }
 
-    public function b4st_post_date() {
+    public static function post_date() {
         if ( in_array( get_post_type(), array( 'post', 'attachment' ) ) ) {
             $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
 
@@ -591,8 +588,23 @@ class B4st {
         }
     }
 
-    public function b4st_author_description() {
+    public static function author_description() {
         echo get_the_author_meta('user_description');
+    }
+
+    public static function author_avatar() {
+		echo get_avatar('', $size = '96');
+	}
+
+    public function avatar_attributes($avatar_attributes) {
+		$display_name = get_the_author_meta( 'display_name' );
+		$avatar_attributes = str_replace('alt=\'\'', 'alt=\'Avatar for '.$display_name.'\' title=\'Gravatar for '.$display_name.'\'',$avatar_attributes);
+		return $avatar_attributes;
+	}
+
+	public function change_logo_class( $html ) {
+        $html = str_replace( 'class="custom-logo-link"', 'class="custom-logo-link navbar-brand"', $html );
+        return $html;
     }
 
 }

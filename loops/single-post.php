@@ -3,7 +3,6 @@
 The Single Post
 ===============
 */
-global $b4sth;
 ?>
 
 <?php if ( have_posts() ): while( have_posts() ): the_post(); ?>
@@ -18,7 +17,7 @@ global $b4sth;
                 the_author_posts_link();
                 _e( ' в ', _B4ST_TTD );
                 ?>
-                <?php echo $b4sth->b4st_post_date(); ?>
+                <?php echo B4stHelpers::post_date(); ?>
             </div>
         </header>
         <main>
@@ -39,7 +38,7 @@ global $b4sth;
                 <?php b4st_author_avatar(); ?>
                 <div class="media-body ml-3">
                     <p class="h4 author-name"><?php the_author_posts_link(); ?></p>
-                    <p class="author-description"><?php $b4sth->b4st_author_description(); ?></p>
+                    <p class="author-description"><?php echo B4stHelpers::author_description(); ?></p>
                     <p class="author-other-posts mb-0 border-top pt-3"><?php _e( 'Другие статьи от ', _B4ST_TTD );
                         the_author_posts_link(); ?></p>
                 </div>

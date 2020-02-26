@@ -45,29 +45,6 @@ if ( ! function_exists('b4st_setup') ) {
 }
 add_action('init', 'b4st_setup');
 
-if ( ! function_exists( 'b4st_avatar_attributes' ) ) {
-	function b4st_avatar_attributes($avatar_attributes) {
-		$display_name = get_the_author_meta( 'display_name' );
-		$avatar_attributes = str_replace('alt=\'\'', 'alt=\'Avatar for '.$display_name.'\' title=\'Gravatar for '.$display_name.'\'',$avatar_attributes);
-		return $avatar_attributes;
-	}
-}
-add_filter('get_avatar','b4st_avatar_attributes');
-
-if ( ! function_exists( 'b4st_author_avatar' ) ) {
-	function b4st_author_avatar() {
-
-		echo get_avatar('', $size = '96');
-	}
-}
-
-function change_logo_class( $html ) {
-    $html = str_replace( 'class="custom-logo-link"', 'class="custom-logo-link navbar-brand"', $html );
-
-    return $html;
-}
-add_filter( 'get_custom_logo', 'change_logo_class' );
-
 add_action( 'after_setup_theme', function () {
     load_theme_textdomain( _B4ST_TTD, get_template_directory() . '/languages' );
 } );
