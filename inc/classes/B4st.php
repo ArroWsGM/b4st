@@ -596,13 +596,13 @@ class B4st {
 		echo get_avatar('', $size = '96');
 	}
 
-    public static function avatar_attributes($avatar_attributes) {
+    public function avatar_attributes($avatar_attributes) {
 		$display_name = get_the_author_meta( 'display_name' );
 		$avatar_attributes = str_replace('alt=\'\'', 'alt=\'Avatar for '.$display_name.'\' title=\'Gravatar for '.$display_name.'\'',$avatar_attributes);
 		return $avatar_attributes;
 	}
 
-	public static function change_logo_class( $html ) {
+	public function change_logo_class( $html ) {
         $html = str_replace( 'class="custom-logo-link"', 'class="custom-logo-link navbar-brand"', $html );
         return $html;
     }
