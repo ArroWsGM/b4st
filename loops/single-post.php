@@ -16,8 +16,8 @@ The Single Post
                 _e( 'От ', _B4ST_TTD );
                 the_author_posts_link();
                 _e( ' в ', _B4ST_TTD );
-                b4st_post_date();
                 ?>
+                <?php echo B4stHelpers::post_date(); ?>
             </div>
         </header>
         <main>
@@ -35,10 +35,10 @@ The Single Post
                 _e( 'Комментариев', _B4ST_TTD ); ?>: <?php printf( number_format_i18n( get_comments_number() ) ); ?>
             </p>
             <div class="author-bio media border-top pt-3">
-                <?php b4st_author_avatar(); ?>
+                <?php echo B4stHelpers::author_avatar(); ?>
                 <div class="media-body ml-3">
                     <p class="h4 author-name"><?php the_author_posts_link(); ?></p>
-                    <p class="author-description"><?php b4st_author_description(); ?></p>
+                    <p class="author-description"><?php echo B4stHelpers::author_description(); ?></p>
                     <p class="author-other-posts mb-0 border-top pt-3"><?php _e( 'Другие статьи от ', _B4ST_TTD );
                         the_author_posts_link(); ?></p>
                 </div>

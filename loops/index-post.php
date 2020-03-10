@@ -15,7 +15,7 @@ global $b4sth;
             </a>
         </h2>
         <p class="text-muted">
-            <i class="fas fa-calendar-alt"></i>&nbsp;<?php b4st_post_date(); ?>&nbsp;|
+            <i class="fas fa-calendar-alt"></i>&nbsp;<?php B4stHelpers::post_date(); ?>&nbsp;|
             <i class="fas fa-user"></i>&nbsp; <?php _e( 'От ', _B4ST_TTD );
             the_author_posts_link(); ?>&nbsp;|
             <i class="fas fa-comment"></i>&nbsp;<a

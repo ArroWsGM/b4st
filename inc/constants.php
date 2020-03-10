@@ -21,6 +21,11 @@ if ( ! defined( '_B4ST_DEFAULT_LOGO_SRC' ) ) {
     define( '_B4ST_DEFAULT_LOGO_SRC', '/assets/img/default-logo.png' );
 }
 
+//Default logo src from theme root
+if ( ! defined( '_B4ST_LAZYLOAD_DUMMY_IMG_SRC' ) ) {
+    define( '_B4ST_LAZYLOAD_DUMMY_IMG_SRC', '/assets/img/empty-placeholder.png' );
+}
+
 //Placeholder for font icons, like Font Awesome
 if ( ! defined( '_B4ST_FONTICON_PLACEHOLDER' ) ) {
     define( '_B4ST_FONTICON_PLACEHOLDER', '<i class="%s"></i>' );

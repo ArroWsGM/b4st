@@ -122,6 +122,28 @@ class B4stThemeSettings {
         );
 
         add_settings_section(
+            'analytics_section', // ID
+            __( 'Аналитика и реклама', _B4ST_TTD ), // Title
+            array( $this, 'print_analytics_section_info' ), // Callback
+            _B4ST_TTD . '-settings' // Page
+        );
+
+        add_settings_field(
+            'analytics_callback', // ID
+            __( 'Коды и идентификаторы аналитики и рекламных аккаунтов', _B4ST_TTD ), // Title
+            array( $this, 'analytics_callback' ), // Callback
+            _B4ST_TTD . '-settings', // Page
+            'analytics_section' // Section
+        );
+        add_settings_field(
+            'analytics_callback_foot', // ID
+            __( 'Коды и идентификаторы аналитики и рекламных аккаунтов', _B4ST_TTD ), // Title
+            array( $this, 'analytics_callback_foot' ), // Callback
+            _B4ST_TTD . '-settings', // Page
+            'analytics_section' // Section
+        );
+
+        add_settings_section(
             'banners_section', // ID
             __( 'Баннеры', _B4ST_TTD ), // Title
             array( $this, 'print_banners_section_info' ), // Callback
@@ -217,6 +239,29 @@ class B4stThemeSettings {
                 }
             }
         }
+
+        if ( isset( $input['analytics_head'] ) && ! empty( $input['analytics_head'] ) ) {
+            /**
+             * TODO: Some additional sanitization of head analytics for securing javascript
+             */
+            $data = trim( $input['analytics_head'] );
+
+            if ( $data ) {
+                $new_input['analytics_head'] = $data;
+            }
+        }
+
+        if ( isset( $input['analytics_foot'] ) && ! empty( $input['analytics_foot'] ) ) {
+            /**
+             * TODO: Some additional sanitization of foot analytics for securing javascript
+             */
+            $data = trim( $input['analytics_foot'] );
+
+            if ( $data ) {
+                $new_input['analytics_foot'] = $data;
+            }
+        }
+
 
         if ( isset( $input['banner_0'] ) ) {
             $new_input['banner_0'] = esc_url( $input['banner_0'], array( 'http', 'https' ) );
@@ -484,6 +529,40 @@ class B4stThemeSettings {
         <?php
 
         self::$banner_number++;
+    }
+    public function print_analytics_section_info() {
+        _e( 'Настройки аналитики и рекламы.', _B4ST_TTD );
+    }
+    /**
+     * Get the settings option array and print one of its values
+     */
+    public function analytics_callback() {
+        ?>
+        <div class="section-preferences">
+            <h3><?php _e( 'SEO-аналитика в head.', _B4ST_TTD ); ?></h3>
+            <?php
+            $analytics_head = isset( $this->options['analytics_head'] ) ? $this->options['analytics_head'] : '';
+            echo '<p><label for="analytics_head">' . __( 'Вставьте код(ы) аналитики. Будьте внимательны! Ошибки в этом поле могут вызвать проблемы с отображением сайта или даже сделать его полностью неработоспособным!', _B4ST_TTD ) . '</label>';
+            echo '<textarea id="analytics_head" name="' . $this->on . '[analytics_head]" class="large-text code" rows="10" cols="25">' . $analytics_head . '</textarea></p>';
+            ?>
+        </div>
+        <?php
+    }
+
+    /**
+     * Get the settings option array and print one of its values
+     */
+    public function analytics_callback_foot() {
+        ?>
+        <div class="section-preferences">
+            <h3><?php _e( 'SEO-аналитика в foot.', _B4ST_TTD ); ?></h3>
+            <?php
+            $analytics_foot = isset( $this->options['analytics_foot'] ) ? $this->options['analytics_foot'] : '';
+            echo '<p><label for="analytics_foot">' . __( 'Вставьте код(ы) аналитики. Будьте внимательны! Ошибки в этом поле могут вызвать проблемы с отображением сайта или даже сделать его полностью неработоспособным!', _B4ST_TTD ) . '</label>';
+            echo '<textarea id="analytics_foot" name="' . $this->on . '[analytics_foot]" class="large-text code" rows="10" cols="25">' . $analytics_foot . '</textarea></p>';
+            ?>
+        </div>
+        <?php
     }
 }
 

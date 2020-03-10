@@ -11,6 +11,7 @@ global $b4sth;
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php wp_head(); ?>
+    <?php echo isset( B4stHelpers::$options['analytics_head'] ) ? B4stHelpers::$options['analytics_head'] : '' ?>
 </head>
 
 <body <?php body_class(); ?>>

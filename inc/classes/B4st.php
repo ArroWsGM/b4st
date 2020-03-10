@@ -20,6 +20,7 @@ class B4st {
                 ! defined( '_B4ST_TTD' ) ||
                 ! defined( '_B4ST_FONTICON_PLACEHOLDER' ) ||
                 ! defined( '_B4ST_DEFAULT_LOGO_SRC' ) ||
+                ! defined( '_B4ST_LAZYLOAD_DUMMY_IMG_SRC' ) ||
                 ! defined( '_B4ST_LOGGING_ON' )
         ) {
             wp_die('Can\'t find core constant!');
@@ -28,6 +29,9 @@ class B4st {
         $this->dir = get_stylesheet_directory();
         //Set theme options
         self::$options = get_option( _B4ST_TTD . '_theme_options' );
+
+        add_filter( 'get_avatar', array($this, 'avatar_attributes') );
+        add_filter( 'get_custom_logo', array($this, 'change_logo_class') );
     }
 
     /**
@@ -121,9 +125,13 @@ class B4st {
         if ( $type == 'svg' ) {
             $src = wp_get_attachment_image_src( $custom_logo_id );
             if ( is_array( $src ) ) {
-                $logo = '<a href="' . home_url( '/' ) . '" class="custom-logo-link navbar-brand" rel="home" itemprop="url"><span class="custom-logo" >%s</span></a>';
-                $svg  = trim( preg_replace( '/<\?xml.*?\?>/i', '', file_get_contents( $src[0] ) ) ); //strip xml header and remove spaces
-                printf( $logo, $svg );
+                $svg = trim( preg_replace( '/<\?xml.*?\?>/i', '', file_get_contents( $src[0] ) ) ); //strip xml header and remove spaces
+                if ( $img_only ) {
+                    echo $svg;
+                } else {
+                    $logo = '<a href="' . home_url( '/' ) . '" class="custom-logo-link navbar-brand" rel="home" itemprop="url"><span class="custom-logo" >%s</span></a>';
+                    printf( $logo, $svg );
+                }
             }
         } elseif ( $img_only ) {
             $custom_logo_id = get_theme_mod( 'custom_logo' );
@@ -343,6 +351,38 @@ class B4st {
             ? reset( self::$options['contacts_phone'] ) : '';
     }
 
+    public function get_contact_phones( $string = true ) {
+        if ( $this->has_contact_phones() ) {
+            $phones = self::$options['contacts_phone'];
+            $output = '';
+
+            foreach ( $phones as $phone ) {
+                $current = '<a href="tel:' . $phone . '">' . $this->get_formatted_phone( $phone ) . '</a>';
+                if ( $string ) {
+                    $output .= $output ? ', ' . $current : $current;
+                } else {
+                    $output .= $output ? '<li>' . $current . '</li>' : '<ul><li>' . $current . '</li>';
+                }
+            }
+
+            if ( ! $string ) {
+                $output .= '</ul>';
+            }
+
+            return $output;
+        }
+
+        return '';
+    }
+
+    public function the_contact_phones( $string = true ) {
+        echo $this->get_contact_phones( $string );
+    }
+
+    public function has_contact_phones() {
+        return isset( self::$options['contacts_phone'] ) && ! empty( self::$options['contacts_phone'] );
+    }
+
     /**
      * Return email from theme settings (if presents) or admin email
      *
@@ -350,8 +390,21 @@ class B4st {
      *
      * @return string
      */
-    protected function get_email() {
-        return isset( self::$options['contacts_email'] ) ? self::$options['contacts_email'] : get_option( 'admin_email', 'admin@example.com' );
+    public function get_email( $with_links = true ) {
+        $email = isset( self::$options['contacts_email'] ) ? self::$options['contacts_email'] : get_option( 'admin_email', 'admin@example.com' );
+
+        if ( $with_links ) {
+            $emails = explode(',', $email);
+
+            $email = '';
+
+            foreach( $emails as $item ) {
+                $item = trim( $item );
+                $email .= '<a href="mailto:' . $item . '">' . $item . '</a> ';
+            }
+        }
+
+        return trim( $email );
     }
 
     /**
@@ -372,23 +425,22 @@ class B4st {
         // For more options and info view the docs for paginate_links()
         // http://codex.wordpress.org/Function_Reference/paginate_links
         $paginate_links = paginate_links( array(
-                                              'base'      => str_replace( $big, '%#%', get_pagenum_link( $big ) ),
-                                              'current'   => max( 1, get_query_var( 'paged' ) ),
-                                              'total'     => $wp_query->max_num_pages,
-                                              'mid_size'  => 5,
-                                              'prev_next' => true,
-                                              'prev_text' => __( '<i class="fas fa-angle-left"></i> Новее', _B4ST_TTD ),
-                                              'next_text' => __( 'Старее <i class="fas fa-angle-right"></i>', _B4ST_TTD ),
-                                              'type'      => 'list',
-                                          ) );
-        $paginate_links = str_replace( "<ul class='page-numbers'>", "<ul class='pagination'>", $paginate_links );
-        $paginate_links = str_replace( "<li>", "<li class='page-item'>", $paginate_links );
-        $paginate_links = str_replace( "<li class='page-item'><span aria-current='page' class='page-numbers current'>", "<li class='page-item active'><a class='page-link' href='#'>", $paginate_links );
-        $paginate_links = str_replace( "<a", "<a class='page-link' ", $paginate_links );
+            'base'      => str_replace( $big, '%#%', get_pagenum_link( $big ) ),
+            'current'   => max( 1, get_query_var( 'paged' ) ),
+            'total'     => $wp_query->max_num_pages,
+            'mid_size'  => 5,
+            'prev_next' => true,
+            'prev_text' => __( '<i class="far fa-angle-double-left"></i>', _B4ST_TTD ),
+            'next_text' => __( '<i class="far fa-angle-double-right"></i>', _B4ST_TTD ),
+            'type'      => 'list',
+        ) );
 
-        $paginate_links = str_replace( "</span>", "</a>", $paginate_links );
-        $paginate_links = preg_replace( "/\s*page-numbers/", "", $paginate_links );
-        // Display the pagination if more than one page is found
+        $paginate_links = str_replace( '\'', '"', $paginate_links );
+        $paginate_links = str_replace( '<ul class="page-numbers">', '<ul class="pagination">', $paginate_links );
+        $paginate_links = str_replace( '<li>', '<li class="page-item">', $paginate_links );
+        $paginate_links = preg_replace('/\bclass="(.*?)(page-numbers)(.*?)"/', 'class="$1page-link$3"', $paginate_links );
+        $paginate_links = preg_replace('/\<li class="page-item"(.*?)class="(.*?)(current)(.*?)"/', '<li class="page-item active"$1class="$2$4"', $paginate_links );
+
         if ( $paginate_links ) {
             echo $paginate_links;
         }
@@ -447,4 +499,115 @@ class B4st {
     public function the_socials( $class = '', $show_slug = false ) {
         echo $this->get_socials( $class, $show_slug );
     }
+
+
+    /**
+     * Get lazy-load-ready image for slick slider
+     *
+     * @param int $attachment_id ID of attachment img
+     * @param string $size image size name
+     * @param string $alt override alt attr if needed
+     * @param string $class html class attr
+     *
+     * @return string
+     * @uses wp_get_attachment_image_src
+     * @uses get_post_meta
+     * @uses get_template_directory_uri
+     * @uses esc_attr
+     * @uses _B4ST_LAZYLOAD_DUMMY_IMG_SRC
+     * @uses _B4ST_TTD
+     *
+     */
+    public function get_lazy_img( $attachment_id, $size = 'thumbnail', $alt = '', $class = 'img-fluid d-block mx-auto' ) {
+        $src = wp_get_attachment_image_src( $attachment_id, $size );
+        $img = '';
+
+        if ( ! empty( $src ) ) {
+            $placeholder = $this->get_placeholder_img($attachment_id, $src);
+
+            $alt = $alt ?: trim( strip_tags( get_post_meta( $attachment_id, '_wp_attachment_image_alt', true ) ) );
+            $img = '<img
+                                            class="' . esc_attr( $class ) . '"
+                                            src="' . $placeholder . '"
+                                            alt="' . esc_attr( $alt ?: __( 'Изображение', _B4ST_TTD ) ) . '"
+                                            data-lazy="' . $src[0] . '"
+                                            width="' . $src[1] . '"
+                                            height="' . $src[2] . '"
+                                        >';
+        }
+
+        return $img;
+    }
+
+    public function get_placeholder_img($attachment_id, $src) {
+        $placeholder = $this->generate_svg( $src[1], $src[2], $attachment_id );
+
+        return $placeholder ?: get_template_directory_uri() . _B4ST_LAZYLOAD_DUMMY_IMG_SRC;
+    }
+
+    public function generate_svg( $img_width, $img_height, $attachment_id ) {
+        $img_src = wp_get_attachment_image_src( $attachment_id, 'thumb_xs' );
+        $mime = get_post_mime_type( $attachment_id );
+        $svg = '';
+
+        if ( ! empty( $img_src ) ) :
+            $img = file_get_contents( $img_src[0] );
+
+            $base64 = 'data:' . $mime . ';base64,' . base64_encode($img);
+
+            ob_start();
+?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+             xml:space="preserve" x="0"
+             y="0" viewBox="0 0 <?php echo $img_width ?> <?php echo $img_height ?>">
+	<image width="<?php echo $img_width ?>" height="<?php echo $img_height ?>" xlink:href="<?php echo $base64 ?>">
+    </image>
+        </svg><?php
+            $svg = ob_get_clean();
+        endif;
+
+        return $svg ? 'data:image/svg+xml;base64,' . base64_encode($svg) : '';
+    }
+
+    public static function post_date() {
+        if ( in_array( get_post_type(), array( 'post', 'attachment' ) ) ) {
+            $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
+
+            if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+                $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time> <time class="updated" datetime="%3$s">(updated %4$s)</time>';
+            }
+
+            $time_string = sprintf( $time_string,
+                esc_attr( get_the_date( 'c' ) ),
+                get_the_date(),
+                esc_attr( get_the_modified_date( 'c' ) ),
+                get_the_modified_date()
+            );
+
+            echo $time_string;
+        }
+    }
+
+    public static function author_description() {
+        echo get_the_author_meta('user_description');
+    }
+
+    public static function author_avatar() {
+		echo get_avatar('', $size = '96');
+	}
+
+    public function avatar_attributes($avatar_attributes) {
+		$display_name = get_the_author_meta( 'display_name' );
+		$avatar_attributes = str_replace('alt=\'\'', 'alt=\'Avatar for '.$display_name.'\' title=\'Gravatar for '.$display_name.'\'',$avatar_attributes);
+		return $avatar_attributes;
+	}
+
+	public function change_logo_class( $html ) {
+        $html = str_replace( 'class="custom-logo-link"', 'class="custom-logo-link navbar-brand"', $html );
+        return $html;
+    }
+
 }
+
+
+
