@@ -1,3 +1,4 @@
+<?php global $b4sth; ?>
 <footer class="site-footer mt-5">
 
     <div class="container">
@@ -12,6 +13,24 @@
             <div class="col">
                 <p class="text-center">&copy; <?php echo date( 'Y' ); ?> <a
                             href="<?php echo home_url( '/' ); ?>"><?php bloginfo( 'name' ); ?></a></p>
+                <?php if ( $b4sth->get_email() || $b4sth->has_contact_phones() || $b4sth->get_address() ) : ?>
+                    <ul class="list-unstyled mb-3">
+                        <?php if ( $b4sth->get_email() ) : ?>
+                            <li><?php _e( 'Пишите: ', _B4ST_TTD );
+                                $b4sth->the_email() ?></li>
+                        <?php endif; ?>
+                        <?php if ( $b4sth->has_contact_phones() ) : ?>
+                            <li><?php _e( 'Звоните: ', _B4ST_TTD );
+                                $b4sth->the_contact_phones() ?></li>
+                        <?php endif; ?>
+                        <?php if ( $b4sth->get_address() ) : ?>
+                            <li><?php _e( 'Заходите: ', _B4ST_TTD );
+                                $b4sth->the_address() ?></li>
+                        <?php endif; ?>
+                    </ul>
+                <?php endif; ?>
+                <p class="mb-3">&copy; <?php echo date( 'Y' ) ?>
+                    <?php bloginfo( 'name' ); ?></p>
             </div>
         </div>
 

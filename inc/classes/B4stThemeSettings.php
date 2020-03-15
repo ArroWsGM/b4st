@@ -173,7 +173,18 @@ class B4stThemeSettings {
         $code      = 'settings_updated';
 
         if ( isset( $input['contacts_email'] ) && ! empty( $input['contacts_email'] ) ) {
-            $new_input['contacts_email'] = sanitize_email( $input['contacts_email'] );
+            $emails = explode( ',', $input['contacts_email'] );
+            $output = '';
+            for ($i = 0; $i < count($emails); $i++) {
+                $email = sanitize_email( trim( $emails[$i] ) );
+                if ( $email ) {
+                    $output = $output ? $output . ', ' . $email : $email;
+                }
+            }
+
+            if ( $output ) {
+                $new_input['contacts_email'] = $output;
+            }
         }
 
         if ( isset( $input['contacts_phone'] ) && ! empty( $input['contacts_phone'] ) ) {
@@ -384,7 +395,7 @@ class B4stThemeSettings {
     public function contacts_email_callback() {
         $contacts_email = isset( $this->options['contacts_email'] ) ? $this->options['contacts_email'] : '';
 
-        echo '<p><input type="email" id="contacts_email" name="' . $this->on . '[contacts_email]" value="' . $contacts_email . '" placeholder="' . get_option( 'admin_email', 'email@example.com') . '" class="regular-text ltr"></p>';
+        echo '<p><input type="text" id="email" name="' . $this->on . '[contacts_email]" value="' . $contacts_email . '" placeholder="' . get_option( 'admin_email', 'email@example.com') . '" class="regular-text ltr"></p>';
         ?>
         <p class="description"><?php _e( 'Если email не указан, будет использоваться почта из основных настроек CMS.', _B4ST_TTD ) ?></p>
         <?php
