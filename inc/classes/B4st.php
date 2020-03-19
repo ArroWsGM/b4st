@@ -386,9 +386,10 @@ class B4st {
     /**
      * Return email from theme settings (if presents) or admin email
      *
-     * @uses get_option()
+     * @param bool $with_links
      *
      * @return string
+     * @uses get_option()
      */
     public function get_email( $with_links = true ) {
         $email = isset( self::$options['contacts_email'] ) ? self::$options['contacts_email'] : get_option( 'admin_email', 'admin@example.com' );
@@ -405,6 +406,33 @@ class B4st {
         }
 
         return trim( $email );
+    }
+
+    /**
+     * Display email from theme settings (if presents) or admin email
+     *
+     * @return string
+     * @uses get_email()
+     *
+     */
+    public function the_email( $with_links = true ) {
+        echo $this->get_email( $with_links );
+    }
+
+    /**
+     * Return address
+     *
+     * @return string
+     */
+    public function get_address() {
+        return isset( self::$options['contacts_address'] ) ? self::$options['contacts_address'] : '';
+    }
+
+    /**
+     * Display address
+     */
+    public function the_address() {
+        echo $this->get_address();
     }
 
     /**
@@ -430,8 +458,8 @@ class B4st {
             'total'     => $wp_query->max_num_pages,
             'mid_size'  => 5,
             'prev_next' => true,
-            'prev_text' => __( '<i class="far fa-angle-double-left"></i>', _B4ST_TTD ),
-            'next_text' => __( '<i class="far fa-angle-double-right"></i>', _B4ST_TTD ),
+            'prev_text' => __( '<i class="fas fa-angle-double-left"></i>', _B4ST_TTD ),
+            'next_text' => __( '<i class="fas fa-angle-double-right"></i>', _B4ST_TTD ),
             'type'      => 'list',
         ) );
 
@@ -569,19 +597,25 @@ class B4st {
         return $svg ? 'data:image/svg+xml;base64,' . base64_encode($svg) : '';
     }
 
-    public static function post_date() {
+    public static function post_date( $updated = true, $format = '', $with_ico = false ) {
+        if ( ! $format ) {
+            $format = get_option( 'date_format', 'c' );
+        }
+
         if ( in_array( get_post_type(), array( 'post', 'attachment' ) ) ) {
             $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
 
-            if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+            if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) && $updated ) {
                 $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time> <time class="updated" datetime="%3$s">(updated %4$s)</time>';
             }
 
+            $time_string = $with_ico ? '<i class="fas fa-clock"></i>&nbsp;' . $time_string : $time_string;
+
             $time_string = sprintf( $time_string,
-                esc_attr( get_the_date( 'c' ) ),
-                get_the_date(),
-                esc_attr( get_the_modified_date( 'c' ) ),
-                get_the_modified_date()
+                                    esc_attr( get_the_date( 'c' ) ),
+                                    get_the_date($format),
+                                    esc_attr( get_the_modified_date( 'c' ) ),
+                                    get_the_modified_date($format)
             );
 
             echo $time_string;
