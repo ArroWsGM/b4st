@@ -395,7 +395,7 @@ class B4stThemeSettings {
     public function contacts_email_callback() {
         $contacts_email = isset( $this->options['contacts_email'] ) ? $this->options['contacts_email'] : '';
 
-        echo '<p><input type="text" id="email" name="' . $this->on . '[contacts_email]" value="' . $contacts_email . '" placeholder="' . get_option( 'admin_email', 'email@example.com') . '" class="regular-text ltr"></p>';
+        echo '<p><input type="email" id="contacts_email"' . $this->on . '[contacts_email]" value="' . $contacts_email . '" placeholder="' . get_option( 'admin_email', 'email@example.com') . '" class="regular-text ltr"></p>';
         ?>
         <p class="description"><?php _e( 'Если email не указан, будет использоваться почта из основных настроек CMS.', _B4ST_TTD ) ?></p>
         <?php
@@ -413,11 +413,11 @@ class B4stThemeSettings {
 
             if ( count( $contacts_phones ) > 0 ) {
                 foreach ( $contacts_phones as $key => $val ) {
-                    echo '<input type="text" id="contacts_phone" name="' . $this->on . '[contacts_phone][' . $key . ']" value="' . $val . '" class="regular-text ltr"><br>';
+                    echo '<input type="tel" id="contacts_phone" name="' . $this->on . '[contacts_phone][' . $key . ']" value="' . $val . '" class="regular-text ltr"><br>';
                 }
             }
 
-            echo '<input type="text" id="contacts_phone" name="' . $this->on . '[contacts_phone][phone_' . ( count( $contacts_phones ) + 1 ) . ']" value="" placeholder="+380xxxxxxxxx" class="regular-text ltr">';
+            echo '<input type="tel" id="contacts_phone" name="' . $this->on . '[contacts_phone][phone_' . ( count( $contacts_phones ) + 1 ) . ']" value="" placeholder="+380xxxxxxxxx" class="regular-text ltr">';
             ?>
         </p>
         <p class="description"><?php _e( 'Вводите номера в международном формате. Для удаления номера просто очистите поле.', _B4ST_TTD ) ?></p>

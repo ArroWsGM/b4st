@@ -29,8 +29,6 @@
                         <?php endif; ?>
                     </ul>
                 <?php endif; ?>
-                <p class="mb-3">&copy; <?php echo date( 'Y' ) ?>
-                    <?php bloginfo( 'name' ); ?></p>
             </div>
         </div>
 

@@ -458,8 +458,8 @@ class B4st {
             'total'     => $wp_query->max_num_pages,
             'mid_size'  => 5,
             'prev_next' => true,
-            'prev_text' => __( '<i class="far fa-angle-double-left"></i>', _B4ST_TTD ),
-            'next_text' => __( '<i class="far fa-angle-double-right"></i>', _B4ST_TTD ),
+            'prev_text' => __( '<i class="fas fa-angle-double-left"></i>', _B4ST_TTD ),
+            'next_text' => __( '<i class="fas fa-angle-double-right"></i>', _B4ST_TTD ),
             'type'      => 'list',
         ) );
 
@@ -609,7 +609,7 @@ class B4st {
                 $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time> <time class="updated" datetime="%3$s">(updated %4$s)</time>';
             }
 
-            $time_string = $with_ico ? '<i class="far fa-clock"></i>&nbsp;' . $time_string : $time_string;
+            $time_string = $with_ico ? '<i class="fas fa-clock"></i>&nbsp;' . $time_string : $time_string;
 
             $time_string = sprintf( $time_string,
                                     esc_attr( get_the_date( 'c' ) ),
